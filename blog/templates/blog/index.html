@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+
+{% block title %} All Posts {% endblock %}
+
+{% block content %}
+
+<h1>Latest Posts</h1>
+
+<ul>
+{% for post in latest_posts %}
+   <li><a href="{% url 'detail' post.id %}">{{ post.title }}</a>
+{% endfor %}
+</ul>
+
+{% endblock %}

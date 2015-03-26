@@ -1,11 +1,16 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.views import generic
 
 from blog.models import Post
 
-def index(request):
-    return HttpResponse("hello world")
+class IndexView(generic.ListView):
+    template_name = 'blog/index.html'
+    context_object_name = 'latest_posts'
 
-def detail(request, post_id):
-    post = get_object_or_404(Post, pk=post_id)
-    return render(request, 'blog/detail.html', {'post': post})
+    def get_queryset(self):
+        return Post.objects.order_by('-written_on')[:5]
+
+class DetailView(generic.DetailView):
+    model = Post
+    template_name = 'blog/detail.html'
