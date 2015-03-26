@@ -7,6 +7,7 @@ class ImageInline(admin.TabularInline):
 
 class ImageAdmin(admin.ModelAdmin):
     model = Image
+    readonly_fields = ('image_tag',)
 
 class PostAdmin(admin.ModelAdmin):
     fieldsets = [

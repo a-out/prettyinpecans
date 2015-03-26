@@ -7,7 +7,7 @@ def render_markdown(md_text, images):
     image_ref = ""
 
     for image in images:
-        image_url = settings.MEDIA_URL + image.image.url
+        image_url = settings.STATIC_URL + image.image.url
         image_ref = "{}\n[{}]: {}".format(image_ref, image, image_url)
 
     md = "{}\n{}".format(md_text, image_ref)
@@ -16,6 +16,10 @@ def render_markdown(md_text, images):
 class Image(models.Model):
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to="images")
+
+    def image_tag(self):
+        return '<img src="{}" />'.format('/static/' + self.image.url)
+    image_tag.allow_tags = True
 
     def __str__(self):
         return self.name
