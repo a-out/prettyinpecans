@@ -38,3 +38,50 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Ingredient(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class MealType(models.Model):
+    name = models.CharField(max_length=32)
+
+    def __str__(self):
+        return self.name
+
+
+class Diet(models.Model):
+    DIETS = (
+        ('DF', 'Dairy Free'),
+        ('GF', 'Gluten Free'),
+        ('RW', 'Raw'),
+        ('VG', 'Vegan'),
+        ('VT', 'Vegetarian'),
+        ('NO', 'None')
+    )
+    name = models.CharField(max_length=2, choices=DIETS)
+
+    def __str__(self):
+        return self.name
+
+
+class Recipe(models.Model):
+    SEASONS = (
+        ('SP', 'Spring'),
+        ('SU', 'Summer'),
+        ('FA', 'Fall'),
+        ('WI', 'Winter')
+    )
+    name = models.CharField(max_length=100)
+    ingredients = models.ManyToManyField(Ingredient)
+    diets = models.ManyToManyField(Diet)
+    mealTypes = models.ManyToManyField(MealType)
+    season = models.CharField(max_length=2, choices=SEASONS)
+    calories = models.IntegerField()
+
+    def __str__(self):
+        return self.name
