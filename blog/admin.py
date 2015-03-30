@@ -26,7 +26,7 @@ class ImageInline(admin.TabularInline):
 class PostAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Meta',    {'fields': ['title', 'slug']}),
-        ('Content', {'fields': ['body']})
+        ('Content', {'fields': ['body', 'header_image']})
     ]
     prepopulated_fields = {'slug': ['title']}
     inlines = [ImageInline]

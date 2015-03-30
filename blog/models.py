@@ -32,6 +32,7 @@ class Post(models.Model):
     published = models.BooleanField(default=False)
     body = models.TextField()
     images = models.ManyToManyField(Image)
+    header_image = models.ForeignKey(Image, related_name='title_post')
 
     def html(self):
         return render_markdown(self.body, self.images.all())
