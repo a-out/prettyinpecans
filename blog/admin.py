@@ -33,8 +33,8 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class RecipeAdmin(admin.ModelAdmin):
-    pass
-
+    ordering = ['name']
+    filter_horizontal = ['ingredients']
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Image, ImageAdmin)
