@@ -1,15 +1,25 @@
 {% extends "blog/base.html" %}
+{% load static %}
 
 {% block title %} All Posts {% endblock %}
 
 {% block content %}
 
-<h1>Latest Posts</h1>
-
-<ul>
 {% for post in latest_posts %}
-   <li><a href="{% url 'detail' post.id %}">{{ post.title }}</a>
+   <div class="post">
+      <div class="post-header row">
+         <div class="ten columns">
+            <span class="post-title">{{ post.title }}</span>
+         </div>
+         <div class="two columns">
+            <span class="post-date">{{ post.pretty_date }}</span>
+         </div>
+      </div>
+
+      <img src="{% static post.header_image.image.url %}" />
+
+      <p>{{ post.html | safe }}</p>
+   </div>
 {% endfor %}
-</ul>
 
 {% endblock %}

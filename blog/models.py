@@ -37,6 +37,11 @@ class Post(models.Model):
     def html(self):
         return render_markdown(self.body, self.images.all())
 
+    def pretty_date(self):
+        day = self.written_on.strftime("%d").lstrip("0")
+        month_name = self.written_on.strftime("%B")
+        return "{} {}".format(month_name, day)
+
     def __str__(self):
         return self.title
 
