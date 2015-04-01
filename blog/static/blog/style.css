@@ -1,0 +1,48 @@
+.masthead {
+   font-size: 36px;
+   width: 100%;
+   margin-left: 0;
+}
+
+.navbar {
+   
+}
+
+#header {
+   border-bottom: 2px dashed #aaa;
+   margin-bottom: 6rem;
+}
+
+.nav-list {
+   list-style: outside none none;
+}
+
+.nav-item {
+   float: left;
+   padding-right: 23px;
+}
+
+.nav-item a {
+   text-decoration: none;
+   color: #444;
+   text-transform: uppercase;
+}
+
+.post {
+   margin-left: 0;
+   max-width: 540px;
+   font-size: 1.0em;
+}
+
+.post-header {
+}
+
+.post-title {
+   font-size: 1.5em;
+   letter-spacing: -0.01em;
+}
+
+.post-date {
+   opacity: 0.6;
+   vertical-align: text-bottom;
+}
