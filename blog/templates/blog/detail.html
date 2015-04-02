@@ -1,3 +1,7 @@
-<h1>{{ post.title }}</h1>
+{% extends "blog/base.html" %}
 
-{{ post.html | safe }}
+{% block content %}
+
+    {% include "blog/post.html" with post=post %}
+
+{% endblock %}

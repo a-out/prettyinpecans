@@ -1,25 +1,11 @@
 {% extends "blog/base.html" %}
-{% load static %}
 
 {% block title %} All Posts {% endblock %}
 
 {% block content %}
 
 {% for post in latest_posts %}
-   <div class="post">
-      <div class="post-header row">
-         <div class="ten columns">
-            <span class="post-title">{{ post.title }}</span>
-         </div>
-         <div class="two columns">
-            <span class="post-date">{{ post.pretty_date }}</span>
-         </div>
-      </div>
-
-      <img src="{% static post.header_image.image.url %}" />
-
-      <p>{{ post.html | safe }}</p>
-   </div>
+   {% include "blog/post.html" with post=post %}
 {% endfor %}
 
 {% endblock %}

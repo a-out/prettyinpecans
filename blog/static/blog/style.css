@@ -1,11 +1,12 @@
+body {
+   font-family: 'Roboto Slab', serif;
+}
+
 .masthead {
+   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
    font-size: 36px;
    width: 100%;
    margin-left: 0;
-}
-
-.navbar {
-   
 }
 
 #header {
@@ -34,15 +35,32 @@
    font-size: 1.0em;
 }
 
-.post-header {
+.post img {
+   max-width: 675px;
+}
+
+.inline * {
+   display: inline-block;
 }
 
 .post-title {
-   font-size: 1.5em;
+   font-size: 1.8em;
    letter-spacing: -0.01em;
+   margin-bottom: 10px;
+}
+
+.muted {
+   opacity: 0.6;
 }
 
 .post-date {
-   opacity: 0.6;
-   vertical-align: text-bottom;
+   float: right;
+}
+
+a {
+   color: #333;
+}
+
+.latest-recipes {
+   list-style: outside none none;
 }

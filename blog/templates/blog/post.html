@@ -1,0 +1,10 @@
+{% load static %}
+
+<div class="post">
+    <div class="post-header row">
+        <span class="post-title">{{ post.title }}</span>
+        <span class="post-date muted">{{ post.pretty_date }}</span>
+    </div>
+    <img src="{% static post.header_image.image.url %}" />
+    <p>{{ post.html | safe }}</p>
+</div>
