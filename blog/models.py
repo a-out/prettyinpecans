@@ -7,7 +7,7 @@ def render_markdown(md_text, images):
     image_ref = ""
 
     for image in images:
-        image_url = settings.STATIC_URL + image.image.url
+        image_url = image.image.url
         image_ref = "{}\n[{}]: {}".format(image_ref, image, image_url)
 
     md = "{}\n{}".format(md_text, image_ref)

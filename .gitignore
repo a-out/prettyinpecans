@@ -60,4 +60,5 @@ target/
 *.sqlite3
 
 static/images
+media/
 blog/static/bower_components
