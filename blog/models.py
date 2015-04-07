@@ -50,6 +50,12 @@ class Post(models.Model):
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
 
+    def save(self, *args, **kwargs):
+        # ingredient names should be all lowercase
+        self.name = self.name.lower()
+        super(Ingredient, self).save(*args, **kwargs)
+
+
     def __str__(self):
         return self.name
 
