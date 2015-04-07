@@ -33,6 +33,7 @@ class Post(models.Model):
     body = models.TextField()
     images = models.ManyToManyField(Image)
     header_image = models.ForeignKey(Image, related_name='title_post')
+    recipes = models.ManyToManyField('Recipe')
 
     def html(self):
         return render_markdown(self.body, self.images.all())
@@ -69,7 +70,7 @@ class Diet(models.Model):
         ('VT', 'Vegetarian'),
         ('NO', 'None')
     )
-    name = models.CharField(max_length=2, choices=DIETS)
+    name = models.CharField(max_length=2, choices=DIETS, default='NO')
 
     def __str__(self):
         return self.name
@@ -77,17 +78,22 @@ class Diet(models.Model):
 
 class Recipe(models.Model):
     SEASONS = (
-        ('SP', 'Spring'),
-        ('SU', 'Summer'),
-        ('FA', 'Fall'),
-        ('WI', 'Winter')
+        ('SPR', 'Spring'),
+        ('SUM', 'Summer'),
+        ('FAL', 'Fall'),
+        ('WIN', 'Winter'),
+        ('ANY', 'Any')
     )
     name = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
     ingredients = models.ManyToManyField(Ingredient)
+    instructions = models.TextField()
     diets = models.ManyToManyField(Diet)
     mealTypes = models.ManyToManyField(MealType)
-    season = models.CharField(max_length=2, choices=SEASONS)
+    season = models.CharField(max_length=3, choices=SEASONS, default='ANY')
     calories = models.IntegerField()
+    prep_time = models.IntegerField()
+    cook_time = models.IntegerField()
 
     def __str__(self):
         return self.name
