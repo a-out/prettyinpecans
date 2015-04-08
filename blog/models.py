@@ -101,5 +101,11 @@ class Recipe(models.Model):
     prep_time = models.IntegerField()
     cook_time = models.IntegerField()
 
+    def render(self):
+        return render_markdown(self.instructions, [])
+
+    def total_time(self):
+        return self.prep_time + self.cook_time
+
     def __str__(self):
         return self.name
