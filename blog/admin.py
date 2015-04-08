@@ -36,6 +36,13 @@ class PostAdmin(admin.ModelAdmin):
 class RecipeAdmin(admin.ModelAdmin):
     ordering = ['name']
     filter_horizontal = ['ingredients']
+    fieldsets = [
+        (None, {'fields': ('name',)}),
+        ('Recipe Card', {'fields': ('ingredients_text', 'instructions')}),
+        ('Times', {'fields': (('prep_time', 'cook_time'),)}),
+        ('Nutrition', {'fields': ('calories',)}),
+        ('Tags', {'fields': (('season', 'diets', 'mealTypes'))})
+    ]
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Image, ImageAdmin)
