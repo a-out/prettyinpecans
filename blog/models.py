@@ -3,7 +3,7 @@ from django.conf import settings
 
 import markdown
 
-def render_markdown(md_text, images):
+def render_markdown(md_text, images=[]):
     image_ref = ""
 
     for image in images:
@@ -103,7 +103,8 @@ class Recipe(models.Model):
     cook_time = models.IntegerField()
 
     def render(self):
-        return render_markdown(self.instructions, [])
+        return render_markdown(self.ingredients_text.rstrip()) + '\n' + \
+               render_markdown(self.instructions.rstrip())
 
     def total_time(self):
         return self.prep_time + self.cook_time
