@@ -93,6 +93,7 @@ class Recipe(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     ingredients = models.ManyToManyField(Ingredient)
+    ingredients_text = models.TextField()
     instructions = models.TextField()
     diets = models.ManyToManyField(Diet)
     mealTypes = models.ManyToManyField(MealType)
