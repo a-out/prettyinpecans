@@ -7,4 +7,10 @@
     </div>
     <img src="{{ post.header_image.image.url }}" />
     {{ post.html | safe }}
+
+    {% if post.recipes %}
+        {% for recipe in post.recipes.all %}
+            {% include "blog/recipe_card.html" with recipe=recipe %}
+        {% endfor %}
+    {% endif %}
 </div>

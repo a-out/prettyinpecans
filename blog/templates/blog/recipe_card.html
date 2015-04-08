@@ -1,0 +1,35 @@
+{% block recipe_card %}
+    <div class="recipe-card">
+        <div class="row">
+            <h1>{{ recipe.name }}</h1>
+        </div>
+        <div class="recipe-card-times">
+            <div class="row recipe-card-time-header">
+                <div class="one-third column">
+                    <strong>Prep Time</strong>
+                </div>
+                <div class="one-third column">
+                    <strong>Cook Time</strong>
+                </div>
+                <div class="one-third column">
+                    <strong>Total Time</strong>
+                </div>
+            </div>
+            <div class="row recipe-card-time-values">
+                <div class="one-third column">
+                    <strong>{{ recipe.prep_time }} minute{{ recipe.prep_time | pluralize }}</strong>
+                </div>
+                <div class="one-third column">
+                    <strong>{{ recipe.cook_time }} minute{{ recipe.cook_time | pluralize }}</strong>
+                </div>
+                <div class="one-third column">
+                    <strong>{{ recipe.total_time }} minute{{ recipe.total_time | pluralize }}</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="recipe-card-instructions">
+            {{ recipe.render | safe }}
+        </div>
+    </div>
+{% endblock %}
