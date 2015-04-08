@@ -102,9 +102,11 @@ class Recipe(models.Model):
     prep_time = models.IntegerField()
     cook_time = models.IntegerField()
 
-    def render(self):
-        return render_markdown(self.ingredients_text.rstrip()) + '\n' + \
-               render_markdown(self.instructions.rstrip())
+    def ingredients_html(self):
+        return render_markdown(self.ingredients_text)
+
+    def instructions_html(self):
+        return render_markdown(self.instructions)
 
     def total_time(self):
         return self.prep_time + self.cook_time

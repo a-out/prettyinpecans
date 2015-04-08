@@ -4,4 +4,10 @@
 
     {% include "blog/post.html" with post=post %}
 
+    {% if post.recipes %}
+        {% for recipe in post.recipes.all %}
+            {% include "blog/recipe_card.html" with recipe=recipe %}
+        {% endfor %}
+    {% endif %}
+
 {% endblock %}

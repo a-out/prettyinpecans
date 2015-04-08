@@ -28,8 +28,13 @@
             </div>
         </div>
 
+        <div class="recipe-card-ingredients">
+            <h2>Ingredients</h2>
+            {{ recipe.ingredients_html | safe }}
+        </div>
         <div class="recipe-card-instructions">
-            {{ recipe.render | safe }}
+            <h2>Instructions</h2>
+            {{ recipe.instructions_html | safe }}
         </div>
     </div>
 {% endblock %}
