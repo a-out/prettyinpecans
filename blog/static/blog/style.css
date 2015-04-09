@@ -30,14 +30,16 @@ body {
 }
 
 .post {
-   margin-left: 0;
-   max-width: 540px;
    font-size: 1.0em;
+}
+
+.post p {
+   margin-left: 5px;
+   margin-right: 5px;
 }
 
 .post img {
    max-width: 625px;
-   border: 1px solid #bbb;
 }
 
 .inline * {
@@ -67,7 +69,7 @@ a {
 }
 
 .recipe-card  {
-   border: 2px dashed #555;
+   background-color: #eee;
    padding: 10px 10px 10px 10px;
    border-radius: 3px;
 }

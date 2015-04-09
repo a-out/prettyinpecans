@@ -3,8 +3,12 @@
 <div class="post">
     <div class="post-header row">
         <span class="post-title">{{ post.title }}</span>
-        <span class="post-date muted">{{ post.pretty_date }}</span>
+    </div>
+    <div class="row">
+        <div class="two columns">
+            <span class="muted">{{ post.pretty_date }}</span>
+        </div>
     </div>
     <img src="{{ post.header_image.image.url }}" />
-    {{ post.html | safe }}
+    {% lorem 3 p %}
 </div>
