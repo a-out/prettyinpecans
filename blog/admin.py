@@ -38,7 +38,7 @@ class RecipeAdmin(admin.ModelAdmin):
     filter_horizontal = ['ingredients']
     fieldsets = [
         (None, {'fields': ('name',)}),
-        ('Recipe Card', {'fields': ('ingredients_text', 'instructions')}),
+        ('Recipe Card', {'fields': ('ingredients_text', 'instructions', 'ingredients')}),
         ('Times', {'fields': (('prep_time', 'cook_time'),)}),
         ('Nutrition', {'fields': ('calories',)}),
         ('Tags', {'fields': (('season', 'diets', 'mealTypes'))})

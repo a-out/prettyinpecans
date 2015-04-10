@@ -43,6 +43,9 @@ class Post(models.Model):
         month_name = self.written_on.strftime("%B")
         return "{} {}".format(month_name, day)
 
+    def is_modified(self):
+        return (self.edited_on - self.written_on).seconds > 2
+
     def __str__(self):
         return self.title
 
