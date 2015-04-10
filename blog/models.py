@@ -46,6 +46,10 @@ class Post(models.Model):
     def is_modified(self):
         return (self.edited_on - self.written_on).seconds > 2
 
+    def truncated_body(self):
+        return render_markdown(''.join(self.body.split('\n')[:1]),
+                               self.images.all())
+
     def __str__(self):
         return self.title
 

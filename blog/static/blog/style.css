@@ -56,10 +56,6 @@ body {
    text-decoration: none;
 }
 
-.post-title a:hover {
-   color: inherit;
-}
-
 .post p {
    margin-left: 5px;
    margin-right: 5px;

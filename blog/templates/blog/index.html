@@ -5,7 +5,7 @@
 {% block content %}
 
 {% for post in latest_posts %}
-   {% include "blog/post.html" with post=post %}
+   {% include "blog/post_condensed.html" with post=post %}
 {% endfor %}
 
 {% endblock %}
