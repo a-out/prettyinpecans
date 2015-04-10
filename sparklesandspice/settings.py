@@ -1,23 +1,8 @@
-"""
-Django settings for sparklesandspice project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
-"""
+from sparklesandspice.secrets import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p9+n%_(3pj4x^ty!x$-i$q4w+3umpo4p2^$@q9p!n5$7usb*7s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
