@@ -2,7 +2,9 @@
 
 <div class="post">
     <div class="post-header row">
-        <span class="post-title">{{ post.title }}</span>
+        <span class="post-title">
+            <a href="{% url 'detail' post.slug %}">{{ post.title }}</a>
+        </span>
     </div>
     <div class="row">
         <div class="two columns">

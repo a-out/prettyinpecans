@@ -9,6 +9,14 @@ body {
    margin-left: 0;
 }
 
+.masthead a {
+   text-decoration: none;
+}
+
+.masthead a:hover {
+   color: inherit;
+}
+
 #header {
    border-bottom: 2px dashed #aaa;
    margin-bottom: 6rem;
@@ -42,6 +50,14 @@ body {
 
 .post {
    font-size: 1.0em;
+}
+
+.post-title a {
+   text-decoration: none;
+}
+
+.post-title a:hover {
+   color: inherit;
 }
 
 .post p {
