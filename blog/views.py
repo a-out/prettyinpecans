@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.views import generic
 
-from blog.models import Post
+from blog.models import Post, Recipe
+from .forms import RecipeBrowserForm
 
 class IndexView(generic.ListView):
     template_name = 'blog/index.html'
@@ -14,3 +15,17 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Post
     template_name = 'blog/detail.html'
+
+def recipe_browser(request):
+    if request.method == 'POST':
+        form = RecipeBrowserForm(request.POST)
+        if form.is_valid():
+            filtered_recipes = Recipe.browser.filter(
+                ingredients=form.cleaned_data['ingredients'])
+            return render(request,
+                    'blog/recipes.html',
+                    {'recipes': filtered_recipes})
+    else:
+        form = RecipeBrowserForm()
+
+    return render(request, 'blog/recipe_browser.html', {'form': form})

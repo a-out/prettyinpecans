@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 
+from .managers import RecipeBrowserManager
+
 import markdown
 
 def render_markdown(md_text, images=[]):
@@ -33,7 +35,7 @@ class Post(models.Model):
     body = models.TextField()
     images = models.ManyToManyField(Image)
     header_image = models.ForeignKey(Image, related_name='title_post')
-    recipes = models.ManyToManyField('Recipe')
+    recipes = models.ManyToManyField('Recipe', related_name='posts')
 
     def html(self):
         return render_markdown(self.body, self.images.all())
@@ -99,7 +101,7 @@ class Recipe(models.Model):
     )
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    ingredients = models.ManyToManyField(Ingredient)
+    ingredients = models.ManyToManyField(Ingredient, related_name='recipes')
     ingredients_text = models.TextField()
     instructions = models.TextField()
     diets = models.ManyToManyField(Diet)
@@ -109,6 +111,9 @@ class Recipe(models.Model):
     prep_time = models.IntegerField()
     cook_time = models.IntegerField()
 
+    objects = models.Manager()
+    browser = RecipeBrowserManager()
+
     def ingredients_html(self):
         return render_markdown(self.ingredients_text)
 
@@ -117,6 +122,13 @@ class Recipe(models.Model):
 
     def total_time(self):
         return self.prep_time + self.cook_time
+
+    def has_all_ingredients(self, ingredients):
+        in_common = set(self.ingredients.all()).intersection(ingredients)
+        return len(in_common) == len(ingredients)
+
+    def image(self):
+        return self.posts.first().header_image.image
 
     def __str__(self):
         return self.name
