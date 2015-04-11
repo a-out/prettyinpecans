@@ -120,3 +120,11 @@ a {
 .recipe-card-instructions ol {
    margin-bottom: 5px;
 }
+
+.recipe-browser-form ul {
+   list-style: none;
+}
+
+.recipe-browser-form li {
+   margin-bottom: -12px;
+}
