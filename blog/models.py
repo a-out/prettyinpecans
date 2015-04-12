@@ -130,5 +130,8 @@ class Recipe(models.Model):
     def image(self):
         return self.posts.first().header_image.image
 
+    def has_post(self):
+        return self.posts.count() > 0
+
     def __str__(self):
         return self.name

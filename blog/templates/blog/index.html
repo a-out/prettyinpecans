@@ -4,8 +4,15 @@
 
 {% block content %}
 
-{% for post in latest_posts %}
-   {% include "blog/post_condensed.html" with post=post %}
-{% endfor %}
+<div class="two-thirds column">
+    {% for post in latest_posts %}
+        {% include "blog/post_condensed.html" with post=post %}
+    {% endfor %}
+</div>
+
+<div class="one-third column sidebar">
+    <h3>Featured</h3>
+    {% include "blog/latest_recipes.html" %}
+</div>
 
 {% endblock %}

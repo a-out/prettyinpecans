@@ -33,14 +33,7 @@
       </div>
 
       <div class="row">
-         <div class="two-thirds column">
-            {% block content %}{% endblock %}
-         </div>
-
-         <div class="one-third column sidebar">
-            <h3>Featured</h3>
-            {% include "blog/latest_recipes.html" %}
-         </div>
+         {% block content %}{% endblock %}
       </div>
 
       <div class="row footer">
