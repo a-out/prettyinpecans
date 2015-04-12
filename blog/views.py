@@ -24,10 +24,10 @@ def recipe_browser(request):
                 ingredients=form.cleaned_data['ingredients'])
             return render(request,
                     'blog/recipe_browser.html',
-                    {'form': form, 'recipes': filtered_recipes})
+                    {'form': form, 'recipes': filtered_recipes, 'show_clear': True})
     else:
         form = RecipeBrowserForm()
 
     return render(request,
         'blog/recipe_browser.html',
-        {'form': form, 'recipes': Recipe.browser.all()})
+        {'form': form, 'recipes': Recipe.browser.all(), 'show_clear': False})
