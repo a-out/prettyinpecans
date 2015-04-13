@@ -105,7 +105,7 @@ class Recipe(models.Model):
     ingredients_text = models.TextField()
     instructions = models.TextField()
     diets = models.ManyToManyField(Diet)
-    mealTypes = models.ManyToManyField(MealType)
+    meal_type = models.ForeignKey(MealType, related_name='recipes')
     season = models.CharField(max_length=3, choices=SEASONS, default='ANY')
     calories = models.IntegerField()
     prep_time = models.IntegerField()

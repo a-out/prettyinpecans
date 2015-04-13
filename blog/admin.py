@@ -41,7 +41,7 @@ class RecipeAdmin(admin.ModelAdmin):
         ('Recipe Card', {'fields': ('ingredients_text', 'instructions', 'ingredients')}),
         ('Times', {'fields': (('prep_time', 'cook_time'),)}),
         ('Nutrition', {'fields': ('calories',)}),
-        ('Tags', {'fields': (('season', 'diets', 'mealTypes'))})
+        ('Tags', {'fields': (('season', 'diets', 'meal_type'))})
     ]
 
 admin.site.register(Post, PostAdmin)
