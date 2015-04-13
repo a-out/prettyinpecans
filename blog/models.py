@@ -57,7 +57,7 @@ class Post(models.Model):
 
 
 class Ingredient(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
 
     def save(self, *args, **kwargs):
         # ingredient names should be all lowercase
@@ -70,7 +70,7 @@ class Ingredient(models.Model):
 
 
 class MealType(models.Model):
-    name = models.CharField(max_length=32)
+    name = models.CharField(max_length=32, unique=True)
 
     def __str__(self):
         return self.name
@@ -85,7 +85,7 @@ class Diet(models.Model):
         ('VT', 'Vegetarian'),
         ('NO', 'None')
     )
-    name = models.CharField(max_length=2, choices=DIETS, default='NO')
+    name = models.CharField(max_length=2, choices=DIETS, default='NO', unique=True)
 
     def __str__(self):
         return self.name
