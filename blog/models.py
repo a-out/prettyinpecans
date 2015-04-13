@@ -103,6 +103,7 @@ class Recipe(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     ingredients = models.ManyToManyField(Ingredient, related_name='recipes')
     ingredients_text = models.TextField()
+    description = models.TextField()
     instructions = models.TextField()
     diets = models.ManyToManyField(Diet)
     meal_type = models.ForeignKey(MealType, related_name='recipes')
