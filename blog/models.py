@@ -35,7 +35,7 @@ class Post(models.Model):
     body = models.TextField()
     images = models.ManyToManyField(Image)
     header_image = models.ForeignKey(Image, related_name='title_post')
-    recipes = models.ManyToManyField('Recipe', related_name='posts')
+    recipes = models.ManyToManyField('Recipe', related_name='posts', blank=True)
 
     def html(self):
         return render_markdown(self.body, self.images.all())
