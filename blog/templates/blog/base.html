@@ -1,12 +1,14 @@
 {% load staticfiles %}
+{% load compile_static %}
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
       <meta charset="utf-8">
       <title>SparklesAndSpice</title>
       <link rel="stylesheet" type="text/css" href="{% static 'bower_components/skeleton-css/css/skeleton.css' %}">
-      <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}">
-      <script type="text/javascript" src="{% static 'blog/js/sns.js' %}"></script>
+      <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}{% compile 'css/style.less' %}">
+      <script type="text/javascript" src="{% static 'js/sns.js' %}"></script>
       <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
       <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
    </head>

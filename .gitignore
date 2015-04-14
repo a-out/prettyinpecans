@@ -59,7 +59,12 @@ target/
 # db
 *.sqlite3
 
+# uploaded files / assets
 static/images
 media/
 blog/static/bower_components
+
+# assets copiled by django-static-precompiler
+compiled/
+
 sparklesandspice/secrets.py

@@ -22,6 +22,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'static_precompiler',
     'blog'
 )
 
@@ -72,6 +73,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+STATIC_PRECOMPILER_ROOT = 'blog/static/'
+STATIC_PRECOMPILER_OUTPUT_DIR = 'compiled'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
