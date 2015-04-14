@@ -4,7 +4,7 @@ from blog.models import Recipe, Ingredient
 
 class RecipeBrowserForm(forms.Form):
     ingredients_list = [(i, "{} ({})".format(i.name, i.recipes.count()))
-                        for i in Ingredient.objects.all()]
+                        for i in Ingredient.browser.all()]
 
     ingredients = forms.TypedMultipleChoiceField(
         required=False,

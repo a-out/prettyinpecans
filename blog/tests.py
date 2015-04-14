@@ -35,3 +35,8 @@ class RecipeBrowserTests(TestCase):
         for m in matches:
             for i in ingredients:
                 self.assertTrue(i in m.ingredients.all())
+
+    def test_all_ingredients_have_recipes(self):
+        ingredients = Ingredient.browser.all()
+        for i in ingredients:
+            self.assertFalse(i.recipes.count() == 0)

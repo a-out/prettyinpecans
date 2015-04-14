@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 
-from .managers import RecipeBrowserManager
+from .managers import RecipeBrowserManager, IngredientBrowserManager
 
 import markdown
 
@@ -59,11 +59,13 @@ class Post(models.Model):
 class Ingredient(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
+    objects = models.Manager()
+    browser = IngredientBrowserManager()
+
     def save(self, *args, **kwargs):
         # ingredient names should be all lowercase
         self.name = self.name.lower()
         super(Ingredient, self).save(*args, **kwargs)
-
 
     def __str__(self):
         return self.name
