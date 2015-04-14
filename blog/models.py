@@ -4,6 +4,9 @@ from django.conf import settings
 from .managers import RecipeBrowserManager, IngredientBrowserManager
 
 import markdown
+import uuid
+from datetime import datetime
+import os
 
 def render_markdown(md_text, images=[]):
     image_ref = ""
@@ -15,9 +18,22 @@ def render_markdown(md_text, images=[]):
     md = "{}\n{}".format(md_text, image_ref)
     return markdown.markdown(md)
 
+def random_file_path(img_instance, filename):
+    now = datetime.now()
+    file_ext = filename.split('.')[-1]
+    path =  "{y}/{m}/{n}.{e}".format(
+        y=now.year,
+        m=now.month,
+        n=uuid.uuid4().hex,
+        e=file_ext
+    )
+    return os.path.join('images', path)
+
+# -------------------------------------------------------------------
+
 class Image(models.Model):
     name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to="images")
+    image = models.ImageField(upload_to=random_file_path)
 
     def image_tag(self):
         return '<img src="{}" />'.format('/static/' + self.image.url)
