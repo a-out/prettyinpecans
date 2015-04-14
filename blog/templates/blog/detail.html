@@ -2,12 +2,19 @@
 
 {% block content %}
 
-    {% include "blog/post.html" with post=post %}
+    <div class="two-thirds column">
+        {% include "blog/post.html" with post=post %}
 
-    {% if post.recipes %}
-        {% for recipe in post.recipes.all %}
-            {% include "blog/recipe_card.html" with recipe=recipe %}
-        {% endfor %}
-    {% endif %}
+        {% if post.recipes %}
+            {% for recipe in post.recipes.all %}
+                {% include "blog/recipe_card.html" with recipe=recipe %}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="one-third column sidebar">
+        <h3>Featured</h3>
+        {% include "blog/latest_recipes.html" %}
+    </div>
 
 {% endblock %}
