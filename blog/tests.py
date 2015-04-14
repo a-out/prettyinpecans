@@ -6,7 +6,7 @@ def get_ingredients(ingredients):
     return [Ingredient.objects.get(name=n) for n in ingredients]
 
 class RecipeTests(TestCase):
-    fixtures = ['blog']
+    fixtures = ['recipes']
 
     def setUp(self):
         self.recipe = Recipe.objects.get(name='Buttered Toast')
@@ -27,7 +27,7 @@ class RecipeTests(TestCase):
 
 
 class RecipeBrowserTests(TestCase):
-    fixtures = ['blog']
+    fixtures = ['recipes']
 
     def test_recipe_browser_by_ingredient(self):
         ingredients = get_ingredients(['butter', 'bread'])
