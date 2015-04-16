@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 
-from .managers import RecipeBrowserManager, IngredientBrowserManager
+from .managers import PostManager, RecipeBrowserManager, IngredientBrowserManager
 
 import markdown
 import uuid
@@ -43,14 +43,23 @@ class Image(models.Model):
         return self.name
 
 class Post(models.Model):
+    TYPES = (
+        ('FOOD', 'Food'),
+        ('FASHION', 'Fashion'),
+        ('TRAVEL', 'Travel')
+    )
+
     title = models.CharField(max_length=100)
     slug = models.CharField(max_length=100)
+    type = models.CharField(max_length=16, choices=TYPES)
     written_on = models.DateTimeField(auto_now_add=True)
     edited_on = models.DateTimeField(auto_now=True)
     published = models.BooleanField(default=False)
     body = models.TextField()
     images = models.ManyToManyField(Image)
     header_image = models.ForeignKey(Image, related_name='title_post')
+
+    objects = PostManager()
 
     def html(self):
         return render_markdown(self.body, self.images.all())

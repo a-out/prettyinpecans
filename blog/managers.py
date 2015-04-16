@@ -1,6 +1,20 @@
 from django.db import models
 from django.db.models import Count
 
+class PostManager(models.Manager):
+
+    def published(self):
+        return self.get_queryset().filter(published=True)
+
+    def food(self):
+        return self.published().filter(type='FOOD')
+
+    def fashion(self):
+        return self.published().filter(type='FASHION')
+
+    def travel(self):
+        return self.published().filter(type='TRAVEL')
+
 class RecipeBrowserManager(models.Manager):
     def filter(self, **kwargs):
         ingredients = kwargs.get('ingredients', [])

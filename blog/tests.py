@@ -1,6 +1,9 @@
 from django.test import TestCase
 
-from blog.models import Post, Recipe, Ingredient, MealType, Diet
+from datetime import datetime
+import re
+
+from blog.models import *
 
 def get_ingredients(ingredients):
     return Ingredient.objects.filter(name__in=ingredients)
@@ -32,9 +35,11 @@ class PostTests(TestCase):
     def setUp(self):
         self.post = Post.objects.get(title='Big Boy Cake')
 
-    def test_default_manager_returns_only_published(self):
-        # todo: recreate this test
-        pass
+    def test_published_only_returns_published_posts(self):
+        posts = Post.objects.published()
+
+        for p in posts:
+            self.assertTrue(p.published)
 
     def test_post_has_recipes(self):
         self.assertTrue(self.post.recipes.count() > 0)
@@ -54,3 +59,16 @@ class RecipeBrowserTests(TestCase):
         ingredients = Ingredient.browser.all()
         for i in ingredients:
             self.assertFalse(i.recipes.count() == 0)
+
+
+class ImageTests(TestCase):
+    fixtures = ['posts']
+
+    def test_random_file_path_provides_correct_path(self):
+        image = Image.objects.first()
+        filename = 'test.jpg'
+        year, month = datetime.now().year, datetime.now().month
+        path = random_file_path(image, filename)
+        image_dir = 'images/{}/{}/'.format(year, month)
+        self.assertTrue(image_dir in path)
+        self.assertTrue('jpg' in path)

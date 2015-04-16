@@ -39,9 +39,9 @@ class RecipeInline(admin.StackedInline):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'written_on', 'published')
+    list_display = ('type', 'title', 'written_on', 'published')
     fieldsets = [
-        ('Meta',    {'fields': [('title', 'slug', 'published')]}),
+        ('Meta',    {'fields': [('title', 'slug', 'type', 'published')]}),
         ('Content', {'fields': ['body', 'header_image']})
     ]
     prepopulated_fields = {'slug': ['title']}
@@ -52,7 +52,7 @@ class RecipeAdmin(admin.ModelAdmin):
     ordering = ['name']
     filter_horizontal = ['ingredients']
     fieldsets = [
-        (None, {'fields': ('name',)}),
+        (None, {'fields': ('name', 'post')}),
         ('Details',
             {'fields': ('description', 'ingredients_text',
                         'instructions', 'ingredients')}),
