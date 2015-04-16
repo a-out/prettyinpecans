@@ -10,7 +10,18 @@ class IndexView(generic.ListView):
     context_object_name = 'latest_posts'
 
     def get_queryset(self):
-        return Post.objects.order_by('-written_on')[:5]
+        return Post.objects.published().order_by('-written_on')[:5]
+
+
+class FoodIndexView(IndexView):
+    def get_queryset(self):
+        return Post.objects.food().order_by('-written_on')
+
+
+class FashionIndexView(IndexView):
+    def get_queryset(self):
+        return Post.objects.fashion().order_by('-written_on')
+
 
 class DetailView(generic.DetailView):
     model = Post
