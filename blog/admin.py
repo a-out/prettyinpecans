@@ -26,13 +26,13 @@ class ImageInline(admin.TabularInline):
 class RecipeInline(admin.StackedInline):
     model = Recipe
     extra = 0
-    filter_horizontal = ['ingredients']
+    filter_vertical = ['ingredients']
     fieldsets = [
         (None, {'fields': ('name',)}),
         ('Details',
             {'fields': ('description', 'ingredients_text',
                         'instructions', 'ingredients')}),
-        ('Times', {'fields': (('prep_time', 'cook_time'),)}),
+        ('Times', {'fields': ('prep_time', 'cook_time')}),
         ('Nutrition', {'fields': ('calories',)}),
         ('Tags', {'fields': (('season', 'diets', 'meal_type'))})
     ]
@@ -41,7 +41,7 @@ class RecipeInline(admin.StackedInline):
 class PostAdmin(admin.ModelAdmin):
     list_display = ('type', 'title', 'written_on', 'published')
     fieldsets = [
-        ('Meta',    {'fields': [('title', 'slug', 'type', 'published')]}),
+        ('Meta',    {'fields': ['title', 'slug', 'type', 'published']}),
         ('Content', {'fields': ['body', 'header_image']})
     ]
     prepopulated_fields = {'slug': ['title']}
