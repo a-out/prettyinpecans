@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from blog.models import Recipe, Ingredient, MealType, Diet
+from blog.models import Post, Recipe, Ingredient, MealType, Diet
 
 def get_ingredients(ingredients):
     return [Ingredient.objects.get(name=n) for n in ingredients]
@@ -24,6 +24,20 @@ class RecipeTests(TestCase):
     def test_total_time(self):
         total_time = self.recipe.prep_time + self.recipe.cook_time
         self.assertEqual(self.recipe.total_time(), total_time)
+
+
+class PostTests(TestCase):
+    fixtures = ['posts']
+
+    def setUp(self):
+        self.post = Post.objects.get(title='Big Boy Cake')
+
+    def test_default_manager_returns_only_published(self):
+        # todo: recreate this test
+        pass
+
+    def test_post_has_recipes(self):
+        self.assertTrue(self.post.recipes.count() > 0)
 
 
 class RecipeBrowserTests(TestCase):
