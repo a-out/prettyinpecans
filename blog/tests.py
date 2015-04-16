@@ -3,7 +3,7 @@ from django.test import TestCase
 from blog.models import Post, Recipe, Ingredient, MealType, Diet
 
 def get_ingredients(ingredients):
-    return [Ingredient.objects.get(name=n) for n in ingredients]
+    return Ingredient.objects.filter(name__in=ingredients)
 
 class RecipeTests(TestCase):
     fixtures = ['recipes']
