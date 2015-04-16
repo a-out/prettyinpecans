@@ -1,352 +1,216 @@
 [
 {
-    "model": "blog.image",
     "pk": 1,
     "fields": {
-        "image": "images/toast_NVvFEaQ.jpg",
-        "name": "buttery-toast-header"
-    }
-},
-{
-    "model": "blog.image",
-    "pk": 2,
-    "fields": {
-        "image": "images/switzerland.jpg",
-        "name": "switzerland-header"
-    }
-},
-{
-    "model": "blog.image",
-    "pk": 3,
-    "fields": {
-        "image": "images/french_toast.jpg",
-        "name": "french-toast-header"
-    }
-},
-{
-    "model": "blog.image",
-    "pk": 5,
-    "fields": {
-        "image": "images/2015/4/06fe62b84c184963b793bee31c24aff4.jpg",
+        "image": "images/2015/4/614592a2d1174fc693ea4b0ada8513d3.jpg",
         "name": "big-boy-cake-header"
-    }
+    },
+    "model": "blog.image"
 },
 {
-    "model": "blog.post",
-    "pk": 1,
-    "fields": {
-        "edited_on": "2015-04-14T01:16:58.630Z",
-        "title": "Buttery Toast",
-        "written_on": "2015-04-14T01:16:58.630Z",
-        "published": false,
-        "images": [],
-        "slug": "buttery-toast",
-        "recipes": [
-            1
-        ],
-        "header_image": 1,
-        "body": "\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed arcu a orci ultrices fringilla. Duis laoreet porta orci sit amet varius. Aenean laoreet bibendum scelerisque. Cras vitae vulputate ligula. Nam ultrices neque nulla, sit amet consequat justo eleifend quis. Aliquam tempus sagittis semper. Fusce eu elit eget mauris feugiat consequat. In hac habitasse platea dictumst. Duis faucibus tristique scelerisque. Mauris velit quam, blandit non dictum et, pulvinar eu magna. Vestibulum varius pharetra justo non dignissim. Vivamus eget lectus sit amet elit iaculis sodales a pharetra sapien.\r\n\r\nAliquam et enim urna. Nulla aliquam nulla feugiat, tristique elit eu, cursus magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur consectetur condimentum. Aenean vehicula, leo in feugiat bibendum, tortor quam dictum eros, at accumsan erat metus et ex. Proin ut lacus ac augue dignissim varius non vitae leo. Quisque pharetra magna et ligula rutrum, vitae posuere urna mattis. Morbi venenatis luctus lectus eu suscipit. In hac habitasse platea dictumst. Ut lacinia ultrices lacus, eget iaculis quam venenatis nec. Ut aliquet nisl turpis, faucibus porttitor urna dignissim vitae. Morbi a congue mauris, eu finibus urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec vitae felis porta, rhoncus tortor sit amet, auctor diam. "
-    }
-},
-{
-    "model": "blog.post",
     "pk": 2,
     "fields": {
-        "edited_on": "2015-04-14T01:17:42.047Z",
-        "title": "Traveling",
-        "written_on": "2015-04-14T01:17:42.047Z",
-        "published": false,
-        "images": [],
-        "slug": "traveling",
-        "recipes": [],
-        "header_image": 2,
-        "body": "I'm traveling!"
-    }
+        "image": "images/2015/4/cdf07763f93c4beb9b1ad200ddb461cb.jpg",
+        "name": "big-boy-cake-slice"
+    },
+    "model": "blog.image"
 },
 {
-    "model": "blog.post",
     "pk": 3,
     "fields": {
-        "edited_on": "2015-04-14T01:24:38.721Z",
-        "title": "French Toast",
-        "written_on": "2015-04-14T01:18:06.740Z",
-        "published": false,
-        "images": [],
-        "slug": "french-toast",
-        "recipes": [
-            3
-        ],
-        "header_image": 3,
-        "body": "Here's a great french toast recipe."
-    }
+        "image": "images/2015/4/6bd7ae8ce9984e62ab3c0e31d1e0e045.jpg",
+        "name": "water-header"
+    },
+    "model": "blog.image"
 },
 {
-    "model": "blog.post",
-    "pk": 5,
-    "fields": {
-        "edited_on": "2015-04-15T15:26:25.442Z",
-        "title": "Big Boy Cake",
-        "written_on": "2015-04-14T20:53:14.103Z",
-        "published": true,
-        "images": [],
-        "slug": "big-boy-cake",
-        "recipes": [
-            4
-        ],
-        "header_image": 5,
-        "body": "This is one *incredible* cake, but sorry ladies--it's for big boys only."
-    }
-},
-{
-    "model": "blog.ingredient",
     "pk": 1,
     "fields": {
-        "name": "butter"
-    }
+        "published": false,
+        "title": "Big Boy Cake",
+        "body": "This is a **fantastic** cake, but sorry ladies -- it's for big boys only.\r\n\r\n\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed blandit libero, sit amet elementum risus. Pellentesque vitae hendrerit justo, a facilisis dui. Proin tempor nisi a purus condimentum, vitae eleifend mi semper. In vitae neque mauris. Phasellus congue massa eros, eget eleifend nunc elementum sit amet. Mauris faucibus quam nisl, eu lacinia urna varius sit amet. Nulla mattis leo eu ante gravida lobortis. Morbi luctus vitae tortor sagittis laoreet. Phasellus ultricies neque metus, ac facilisis massa hendrerit eu. Ut ut neque nec augue tincidunt iaculis. Donec eleifend arcu non nunc rhoncus pulvinar. Nullam et dignissim purus. Maecenas consequat faucibus nulla, eget ultricies est egestas in. Curabitur non nibh porttitor, commodo arcu sit amet, ultricies odio.\r\n\r\nInteger mollis justo vitae ligula placerat, nec scelerisque libero ultricies. In a congue eros. Suspendisse potenti. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam velit magna, iaculis vel faucibus id, posuere vitae nibh. Sed vel est laoreet, porta justo sit amet, placerat libero. Quisque a cursus nisi. Donec eros sapien, interdum id blandit id, elementum pellentesque metus. In tincidunt efficitur magna, et sollicitudin sapien mattis lobortis. Mauris lobortis pellentesque hendrerit. In eleifend imperdiet egestas. Aliquam bibendum mi a convallis placerat. Nullam id luctus tellus. Pellentesque fermentum neque a nisl mollis, non imperdiet est accumsan. \r\n\r\n![big-boy-cake-slice][]\r\n",
+        "header_image": 1,
+        "slug": "big-boy-cake",
+        "images": [
+            2
+        ],
+        "written_on": "2015-04-16T14:17:38.922Z",
+        "edited_on": "2015-04-16T14:17:38.922Z"
+    },
+    "model": "blog.post"
 },
 {
-    "model": "blog.ingredient",
     "pk": 2,
+    "fields": {
+        "published": false,
+        "title": "Scrumptious Water",
+        "body": "When it comes to hydration, there's just no beating water.",
+        "header_image": 3,
+        "slug": "water",
+        "images": [],
+        "written_on": "2015-04-16T14:32:52.960Z",
+        "edited_on": "2015-04-16T14:32:52.960Z"
+    },
+    "model": "blog.post"
+},
+{
+    "pk": 1,
     "fields": {
         "name": "flour"
-    }
+    },
+    "model": "blog.ingredient"
 },
 {
-    "model": "blog.ingredient",
-    "pk": 3,
-    "fields": {
-        "name": "bread"
-    }
-},
-{
-    "model": "blog.ingredient",
-    "pk": 4,
-    "fields": {
-        "name": "mayo"
-    }
-},
-{
-    "model": "blog.ingredient",
-    "pk": 5,
-    "fields": {
-        "name": "ham"
-    }
-},
-{
-    "model": "blog.ingredient",
-    "pk": 6,
-    "fields": {
-        "name": "egg"
-    }
-},
-{
-    "model": "blog.ingredient",
-    "pk": 7,
-    "fields": {
-        "name": "sugar"
-    }
-},
-{
-    "model": "blog.ingredient",
-    "pk": 8,
-    "fields": {
-        "name": "milk"
-    }
-},
-{
-    "model": "blog.ingredient",
-    "pk": 9,
-    "fields": {
-        "name": "maple syrup"
-    }
-},
-{
-    "model": "blog.ingredient",
-    "pk": 10,
-    "fields": {
-        "name": "honey"
-    }
-},
-{
-    "model": "blog.ingredient",
-    "pk": 11,
-    "fields": {
-        "name": "pepper"
-    }
-},
-{
-    "model": "blog.ingredient",
-    "pk": 12,
-    "fields": {
-        "name": "cayenne pepper"
-    }
-},
-{
-    "model": "blog.ingredient",
-    "pk": 13,
-    "fields": {
-        "name": "lemon juice"
-    }
-},
-{
-    "model": "blog.ingredient",
-    "pk": 14,
-    "fields": {
-        "name": "dijon mustard"
-    }
-},
-{
-    "model": "blog.mealtype",
-    "pk": 1,
-    "fields": {
-        "name": "breakfast"
-    }
-},
-{
-    "model": "blog.mealtype",
     "pk": 2,
     "fields": {
-        "name": "lunch"
-    }
+        "name": "sugar"
+    },
+    "model": "blog.ingredient"
 },
 {
-    "model": "blog.mealtype",
     "pk": 3,
     "fields": {
-        "name": "dessert"
-    }
+        "name": "eggs"
+    },
+    "model": "blog.ingredient"
 },
 {
-    "model": "blog.diet",
+    "pk": 4,
+    "fields": {
+        "name": "baking powder"
+    },
+    "model": "blog.ingredient"
+},
+{
+    "pk": 5,
+    "fields": {
+        "name": "baking soda"
+    },
+    "model": "blog.ingredient"
+},
+{
+    "pk": 6,
+    "fields": {
+        "name": "vanilla"
+    },
+    "model": "blog.ingredient"
+},
+{
+    "pk": 7,
+    "fields": {
+        "name": "water"
+    },
+    "model": "blog.ingredient"
+},
+{
+    "pk": 1,
+    "fields": {
+        "name": "dessert"
+    },
+    "model": "blog.mealtype"
+},
+{
+    "pk": 2,
+    "fields": {
+        "name": "drink"
+    },
+    "model": "blog.mealtype"
+},
+{
     "pk": 1,
     "fields": {
         "name": "NO"
-    }
+    },
+    "model": "blog.diet"
 },
 {
-    "model": "blog.recipe",
-    "pk": 1,
-    "fields": {
-        "diets": [
-            1
-        ],
-        "created_at": "2015-04-13T20:15:34.685Z",
-        "meal_type": 1,
-        "season": "ANY",
-        "calories": 200,
-        "cook_time": 2,
-        "description": "Hot, crispy, buttery toast.",
-        "ingredients_text": "- 1 tablespoon butter\r\n- 2 pieces of bread",
-        "ingredients": [
-            1,
-            3
-        ],
-        "instructions": "- Put both pieces of bread in the toaster and push it down.\r\n- When toasting is complete, apply butter liberally.",
-        "prep_time": 1,
-        "name": "Buttered Toast"
-    }
-},
-{
-    "model": "blog.recipe",
     "pk": 2,
     "fields": {
-        "diets": [
-            1
-        ],
-        "created_at": "2015-04-13T20:17:49.018Z",
-        "meal_type": 2,
-        "season": "ANY",
-        "calories": 400,
-        "cook_time": 0,
-        "description": "A classic lunch staple.",
-        "ingredients_text": "- 2 pieces of bread\r\n- sliced ham\r\n- mayo",
-        "ingredients": [
-            3,
-            4,
-            5
-        ],
-        "instructions": "- You should know how to make a sandwich.",
-        "prep_time": 5,
-        "name": "Ham Sandwich"
-    }
+        "name": "DF"
+    },
+    "model": "blog.diet"
 },
 {
-    "model": "blog.recipe",
     "pk": 3,
     "fields": {
-        "diets": [
-            1
-        ],
-        "created_at": "2015-04-14T01:19:59.300Z",
-        "meal_type": 1,
-        "season": "ANY",
-        "calories": 500,
-        "cook_time": 60,
-        "description": "A decadent breakfast treat.",
-        "ingredients_text": "- 2 eggs\r\n- bread\r\n- 1/2 cup milk\r\n- 2 tablespoons sugar\r\n- maple syrup\r\n- butter",
-        "ingredients": [
-            1,
-            3,
-            6,
-            7,
-            8,
-            9
-        ],
-        "instructions": "- Mix everything but the bread.\r\n- Dip your bread in it.\r\n- Cook it for at least an hour.\r\n- Cover in butter and syrup.",
-        "prep_time": 15,
-        "name": "French Toast"
-    }
+        "name": "GF"
+    },
+    "model": "blog.diet"
 },
 {
-    "model": "blog.recipe",
     "pk": 4,
     "fields": {
-        "diets": [
-            1
-        ],
-        "created_at": "2015-04-14T18:20:36.908Z",
-        "meal_type": 3,
-        "season": "ANY",
-        "calories": 1000,
-        "cook_time": 25,
-        "description": "Chocolately Sweet Buttery Cake",
-        "ingredients_text": "* 1 lbs Flour\r\n* 1 lbs Butter\r\n* 1 lbs Sugar\r\n* 1/2 lb Chocolate Chips\r\n* 1 tsp vanilla extract\r\n* 5 eggs\r\n",
+        "name": "RW"
+    },
+    "model": "blog.diet"
+},
+{
+    "pk": 5,
+    "fields": {
+        "name": "VG"
+    },
+    "model": "blog.diet"
+},
+{
+    "pk": 6,
+    "fields": {
+        "name": "VT"
+    },
+    "model": "blog.diet"
+},
+{
+    "pk": 1,
+    "fields": {
+        "prep_time": 10,
+        "meal_type": 1,
+        "description": "A rich, sensual, red-ass cake. Boys only, please.",
+        "created_at": "2015-04-16T14:17:38.925Z",
+        "post": 1,
+        "season": "SPR",
         "ingredients": [
             1,
             2,
-            6,
-            7
+            3,
+            4,
+            5,
+            6
         ],
-        "instructions": "Mix ingredients together and bake, slice and enjoy.",
-        "prep_time": 10,
-        "name": "Big Boy Cake"
-    }
-},
-{
-    "model": "blog.recipe",
-    "pk": 5,
-    "fields": {
+        "name": "Big Boy Cake",
+        "cook_time": 240,
         "diets": [
             1
         ],
-        "created_at": "2015-04-14T18:26:18.943Z",
+        "instructions": "- Mix everything in a gigantic bowl. Use your hands for optimum flavor penetration.\r\n- Cook it on a skillet for 4 hours until it looks like the picture.",
+        "ingredients_text": "- 1 cup flour\r\n- 1 cup sugar\r\n- 100 eggs\r\n- 1 liter vanilla extract",
+        "calories": 2048
+    },
+    "model": "blog.recipe"
+},
+{
+    "pk": 2,
+    "fields": {
+        "prep_time": 1,
         "meal_type": 2,
+        "description": "The ultimate in hydration.",
+        "created_at": "2015-04-16T14:32:52.963Z",
+        "post": 2,
         "season": "ANY",
-        "calories": 66,
-        "cook_time": 1,
-        "description": "Tangy Sweet Rich, A SAWCE for errthang.",
-        "ingredients_text": "*Maynayse\r\n*Honey\r\n*Dijon Mustard\r\n*Pepper\r\n*Cayenne\r\n*Lemon Juice",
         "ingredients": [
-            4,
-            10,
-            11,
-            12,
-            13,
-            14
+            7
         ],
-        "instructions": "Mix all of those things together and eat on a sammich. Maybe a ham sammich.",
-        "prep_time": 5,
-        "name": "Honey Mustard Dressing"
-    }
+        "name": "Glass of Water",
+        "cook_time": 0,
+        "diets": [
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "instructions": "- Mix ingredients into a vessel with at least a 32 ounce capacity.\r\n- Serve chilled.",
+        "ingredients_text": "- 2 cups water",
+        "calories": 0
+    },
+    "model": "blog.recipe"
 }
 ]

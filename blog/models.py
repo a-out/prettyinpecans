@@ -51,7 +51,6 @@ class Post(models.Model):
     body = models.TextField()
     images = models.ManyToManyField(Image)
     header_image = models.ForeignKey(Image, related_name='title_post')
-    recipes = models.ManyToManyField('Recipe', related_name='posts', blank=True)
 
     def html(self):
         return render_markdown(self.body, self.images.all())
@@ -119,6 +118,7 @@ class Recipe(models.Model):
     )
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
+    post = models.ForeignKey(Post, related_name='recipes')
     ingredients = models.ManyToManyField(Ingredient, related_name='recipes')
     ingredients_text = models.TextField()
     description = models.TextField()
@@ -148,9 +148,6 @@ class Recipe(models.Model):
 
     def image(self):
         return self.posts.first().header_image.image
-
-    def has_post(self):
-        return self.posts.count() > 0
 
     def __str__(self):
         return self.name

@@ -9,8 +9,7 @@ class RecipeBrowserManager(models.Manager):
                 r.has_all_ingredients(ingredients)]
 
     def all(self):
-        return [r for r in self.model.objects.all()
-                if r.has_post()]
+        return self.model.objects.all()
 
 
 class IngredientBrowserManager(models.Manager):

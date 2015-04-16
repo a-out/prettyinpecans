@@ -1,105 +1,216 @@
 [
 {
-    "model": "blog.ingredient",
-    "pk": 1,
     "fields": {
-        "name": "butter"
-    }
+        "image": "images/2015/4/614592a2d1174fc693ea4b0ada8513d3.jpg",
+        "name": "big-boy-cake-header"
+    },
+    "model": "blog.image",
+    "pk": 1
 },
 {
-    "model": "blog.ingredient",
-    "pk": 2,
+    "fields": {
+        "image": "images/2015/4/cdf07763f93c4beb9b1ad200ddb461cb.jpg",
+        "name": "big-boy-cake-slice"
+    },
+    "model": "blog.image",
+    "pk": 2
+},
+{
+    "fields": {
+        "image": "images/2015/4/6bd7ae8ce9984e62ab3c0e31d1e0e045.jpg",
+        "name": "water-header"
+    },
+    "model": "blog.image",
+    "pk": 3
+},
+{
+    "fields": {
+        "body": "This is a **fantastic** cake, but sorry ladies -- it's for big boys only.\r\n\r\n\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed blandit libero, sit amet elementum risus. Pellentesque vitae hendrerit justo, a facilisis dui. Proin tempor nisi a purus condimentum, vitae eleifend mi semper. In vitae neque mauris. Phasellus congue massa eros, eget eleifend nunc elementum sit amet. Mauris faucibus quam nisl, eu lacinia urna varius sit amet. Nulla mattis leo eu ante gravida lobortis. Morbi luctus vitae tortor sagittis laoreet. Phasellus ultricies neque metus, ac facilisis massa hendrerit eu. Ut ut neque nec augue tincidunt iaculis. Donec eleifend arcu non nunc rhoncus pulvinar. Nullam et dignissim purus. Maecenas consequat faucibus nulla, eget ultricies est egestas in. Curabitur non nibh porttitor, commodo arcu sit amet, ultricies odio.\r\n\r\nInteger mollis justo vitae ligula placerat, nec scelerisque libero ultricies. In a congue eros. Suspendisse potenti. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam velit magna, iaculis vel faucibus id, posuere vitae nibh. Sed vel est laoreet, porta justo sit amet, placerat libero. Quisque a cursus nisi. Donec eros sapien, interdum id blandit id, elementum pellentesque metus. In tincidunt efficitur magna, et sollicitudin sapien mattis lobortis. Mauris lobortis pellentesque hendrerit. In eleifend imperdiet egestas. Aliquam bibendum mi a convallis placerat. Nullam id luctus tellus. Pellentesque fermentum neque a nisl mollis, non imperdiet est accumsan. \r\n\r\n![big-boy-cake-slice][]\r\n",
+        "header_image": 1,
+        "images": [
+            2
+        ],
+        "title": "Big Boy Cake",
+        "slug": "big-boy-cake",
+        "published": false,
+        "edited_on": "2015-04-16T14:17:38.922Z",
+        "written_on": "2015-04-16T14:17:38.922Z"
+    },
+    "model": "blog.post",
+    "pk": 1
+},
+{
+    "fields": {
+        "body": "When it comes to hydration, there's just no beating water.",
+        "header_image": 3,
+        "images": [],
+        "title": "Scrumptious Water",
+        "slug": "water",
+        "published": false,
+        "edited_on": "2015-04-16T14:32:52.960Z",
+        "written_on": "2015-04-16T14:32:52.960Z"
+    },
+    "model": "blog.post",
+    "pk": 2
+},
+{
     "fields": {
         "name": "flour"
-    }
-},
-{
+    },
     "model": "blog.ingredient",
-    "pk": 3,
-    "fields": {
-        "name": "bread"
-    }
+    "pk": 1
 },
 {
+    "fields": {
+        "name": "sugar"
+    },
     "model": "blog.ingredient",
-    "pk": 4,
-    "fields": {
-        "name": "mayo"
-    }
+    "pk": 2
 },
 {
+    "fields": {
+        "name": "eggs"
+    },
     "model": "blog.ingredient",
-    "pk": 5,
-    "fields": {
-        "name": "ham"
-    }
+    "pk": 3
 },
 {
+    "fields": {
+        "name": "baking powder"
+    },
+    "model": "blog.ingredient",
+    "pk": 4
+},
+{
+    "fields": {
+        "name": "baking soda"
+    },
+    "model": "blog.ingredient",
+    "pk": 5
+},
+{
+    "fields": {
+        "name": "vanilla"
+    },
+    "model": "blog.ingredient",
+    "pk": 6
+},
+{
+    "fields": {
+        "name": "water"
+    },
+    "model": "blog.ingredient",
+    "pk": 7
+},
+{
+    "fields": {
+        "name": "dessert"
+    },
     "model": "blog.mealtype",
-    "pk": 1,
-    "fields": {
-        "name": "breakfast"
-    }
+    "pk": 1
 },
 {
+    "fields": {
+        "name": "drink"
+    },
     "model": "blog.mealtype",
-    "pk": 2,
-    "fields": {
-        "name": "lunch"
-    }
+    "pk": 2
 },
 {
-    "model": "blog.diet",
-    "pk": 1,
     "fields": {
         "name": "NO"
-    }
+    },
+    "model": "blog.diet",
+    "pk": 1
 },
 {
-    "model": "blog.recipe",
-    "pk": 1,
     "fields": {
-        "calories": 200,
+        "name": "DF"
+    },
+    "model": "blog.diet",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "GF"
+    },
+    "model": "blog.diet",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "RW"
+    },
+    "model": "blog.diet",
+    "pk": 4
+},
+{
+    "fields": {
+        "name": "VG"
+    },
+    "model": "blog.diet",
+    "pk": 5
+},
+{
+    "fields": {
+        "name": "VT"
+    },
+    "model": "blog.diet",
+    "pk": 6
+},
+{
+    "fields": {
+        "name": "Big Boy Cake",
+        "cook_time": 240,
+        "ingredients_text": "- 1 cup flour\r\n- 1 cup sugar\r\n- 100 eggs\r\n- 1 liter vanilla extract",
+        "post": 1,
+        "calories": 2048,
+        "instructions": "- Mix everything in a gigantic bowl. Use your hands for optimum flavor penetration.\r\n- Cook it on a skillet for 4 hours until it looks like the picture.",
+        "description": "A rich, sensual, red-ass cake. Boys only, please.",
+        "prep_time": 10,
+        "season": "SPR",
+        "ingredients": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
         "meal_type": 1,
         "diets": [
             1
         ],
-        "created_at": "2015-04-13T20:15:34.685Z",
-        "cook_time": 2,
-        "name": "Buttered Toast",
-        "instructions": "- Put both pieces of bread in the toaster and push it down.\r\n- When toasting is complete, apply butter liberally.",
-        "prep_time": 1,
-        "description": "Hot, crispy, buttery toast.",
-        "ingredients_text": "- 1 tablespoon butter\r\n- 2 pieces of bread",
-        "season": "ANY",
-        "ingredients": [
-            1,
-            3
-        ]
-    }
+        "created_at": "2015-04-16T14:17:38.925Z"
+    },
+    "model": "blog.recipe",
+    "pk": 1
 },
 {
-    "model": "blog.recipe",
-    "pk": 2,
     "fields": {
-        "calories": 400,
-        "meal_type": 2,
-        "diets": [
-            1
-        ],
-        "created_at": "2015-04-13T20:17:49.018Z",
+        "name": "Glass of Water",
         "cook_time": 0,
-        "name": "Ham Sandwich",
-        "instructions": "- You should know how to make a sandwich.",
-        "prep_time": 5,
-        "description": "A classic lunch staple.",
-        "ingredients_text": "- 2 pieces of bread\r\n- sliced ham\r\n- mayo",
+        "ingredients_text": "- 2 cups water",
+        "post": 2,
+        "calories": 0,
+        "instructions": "- Mix ingredients into a vessel with at least a 32 ounce capacity.\r\n- Serve chilled.",
+        "description": "The ultimate in hydration.",
+        "prep_time": 1,
         "season": "ANY",
         "ingredients": [
+            7
+        ],
+        "meal_type": 2,
+        "diets": [
+            2,
             3,
             4,
-            5
-        ]
-    }
+            5,
+            6
+        ],
+        "created_at": "2015-04-16T14:32:52.963Z"
+    },
+    "model": "blog.recipe",
+    "pk": 2
 }
 ]

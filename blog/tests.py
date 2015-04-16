@@ -9,10 +9,10 @@ class RecipeTests(TestCase):
     fixtures = ['recipes']
 
     def setUp(self):
-        self.recipe = Recipe.objects.get(name='Buttered Toast')
+        self.recipe = Recipe.objects.get(name='Big Boy Cake')
 
     def test_has_all_ingredients_true(self):
-        ingredients = get_ingredients(['butter', 'bread'])
+        ingredients = get_ingredients(['butter', 'flour'])
 
         self.assertTrue(self.recipe.has_all_ingredients(ingredients))
 

@@ -23,14 +23,29 @@ class ImageInline(admin.TabularInline):
     model = Post.images.through
 
 
-class PostAdmin(admin.ModelAdmin):
+class RecipeInline(admin.StackedInline):
+    model = Recipe
+    extra = 0
+    filter_horizontal = ['ingredients']
     fieldsets = [
-        ('Meta',    {'fields': [('title', 'slug')]}),
-        ('Content', {'fields': ['body', 'header_image']}),
-        (None, {'fields': ['recipes']})
+        (None, {'fields': ('name',)}),
+        ('Details',
+            {'fields': ('description', 'ingredients_text',
+                        'instructions', 'ingredients')}),
+        ('Times', {'fields': (('prep_time', 'cook_time'),)}),
+        ('Nutrition', {'fields': ('calories',)}),
+        ('Tags', {'fields': (('season', 'diets', 'meal_type'))})
+    ]
+
+
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'written_on', 'published')
+    fieldsets = [
+        ('Meta',    {'fields': [('title', 'slug', 'published')]}),
+        ('Content', {'fields': ['body', 'header_image']})
     ]
     prepopulated_fields = {'slug': ['title']}
-    inlines = [ImageInline]
+    inlines = [ImageInline, RecipeInline]
 
 
 class RecipeAdmin(admin.ModelAdmin):
@@ -45,6 +60,7 @@ class RecipeAdmin(admin.ModelAdmin):
         ('Nutrition', {'fields': ('calories',)}),
         ('Tags', {'fields': (('season', 'diets', 'meal_type'))})
     ]
+
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Image, ImageAdmin)
