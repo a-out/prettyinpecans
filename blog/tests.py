@@ -14,16 +14,6 @@ class RecipeTests(TestCase):
     def setUp(self):
         self.recipe = Recipe.objects.get(name='Big Boy Cake')
 
-    def test_has_all_ingredients_true(self):
-        ingredients = get_ingredients(['butter', 'flour'])
-
-        self.assertTrue(self.recipe.has_all_ingredients(ingredients))
-
-    def test_has_all_ingredients_empty(self):
-        ingredients = []
-
-        self.assertTrue(self.recipe.has_all_ingredients(ingredients))
-
     def test_total_time(self):
         total_time = self.recipe.prep_time + self.recipe.cook_time
         self.assertEqual(self.recipe.total_time(), total_time)
@@ -48,17 +38,65 @@ class PostTests(TestCase):
 class RecipeBrowserTests(TestCase):
     fixtures = ['recipes']
 
-    def test_recipe_browser_by_ingredient(self):
-        ingredients = get_ingredients(['butter', 'bread'])
-        matches = Recipe.browser.filter(ingredients=ingredients)
-        for m in matches:
-            for i in ingredients:
-                self.assertTrue(i in m.ingredients.all())
+    def test_filter_one_ingredient(self):
+        form = {
+            'ingredients': get_ingredients(['flour'])
+        }
+        expected_names = [
+            'Springtime Fresh Blueberry Pie',
+            'Big Boy Cake'
+        ]
+        results = Recipe.browser.filter(form)
 
-    def test_all_ingredients_have_recipes(self):
-        ingredients = Ingredient.browser.all()
-        for i in ingredients:
-            self.assertFalse(i.recipes.count() == 0)
+        self.assertEqual([r.name for r in results], expected_names)
+
+    def test_filter_one_diet(self):
+        form = {
+            'diets': [Diet.objects.get(name='Vegetarian')]
+        }
+        expected_names = [
+            'Springtime Fresh Blueberry Pie',
+            'Healthy Banana Pancakes'
+        ]
+        results = Recipe.browser.filter(form)
+
+        self.assertEqual([r.name for r in results], expected_names)
+
+    def test_filter_one_meal_type(self):
+        form = {
+            'meal_type': MealType.objects.get(name='dinner')
+        }
+        expected_names = [
+            'Taco Bowls',
+            'Quinoa Taco Bake'
+        ]
+        results = Recipe.browser.filter(form)
+
+        self.assertEqual([r.name for r in results], expected_names)
+
+    def test_filter_one_ingredient_and_diet(self):
+        form = {
+            'ingredients': get_ingredients(['flour']),
+            'diets': [Diet.objects.get(name='Vegetarian')]
+        }
+        expected_names = [
+            'Springtime Fresh Blueberry Pie'
+        ]
+        results = Recipe.browser.filter(form)
+
+        self.assertEqual([r.name for r in results], expected_names)
+
+    def test_filter_two_ingredients(self):
+        form = {
+            'ingredients': get_ingredients(['flour', 'blueberries']),
+        }
+        expected_names = [
+            'Springtime Fresh Blueberry Pie'
+        ]
+        results = Recipe.browser.filter(form)
+
+        self.assertEqual([r.name for r in results], expected_names)
+
 
 
 class ImageTests(TestCase):

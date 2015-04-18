@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 
-from .managers import PostManager, RecipeBrowserManager, IngredientBrowserManager
+from .managers import PostManager, RecipeBrowserManager
 
 import markdown
 import uuid
@@ -83,9 +83,6 @@ class Post(models.Model):
 class Ingredient(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
-    objects = models.Manager()
-    browser = IngredientBrowserManager()
-
     def save(self, *args, **kwargs):
         # ingredient names should be all lowercase
         self.name = self.name.lower()
@@ -103,15 +100,7 @@ class MealType(models.Model):
 
 
 class Diet(models.Model):
-    DIETS = (
-        ('DF', 'Dairy Free'),
-        ('GF', 'Gluten Free'),
-        ('RW', 'Raw'),
-        ('VG', 'Vegan'),
-        ('VT', 'Vegetarian'),
-        ('NO', 'None')
-    )
-    name = models.CharField(max_length=2, choices=DIETS, default='NO', unique=True)
+    name = models.CharField(max_length=32, unique=True)
 
     def __str__(self):
         return self.name
@@ -132,7 +121,7 @@ class Recipe(models.Model):
     ingredients_text = models.TextField()
     description = models.TextField()
     instructions = models.TextField()
-    diets = models.ManyToManyField(Diet)
+    diets = models.ManyToManyField(Diet, related_name='recipes', blank=True)
     meal_type = models.ForeignKey(MealType, related_name='recipes')
     season = models.CharField(max_length=3, choices=SEASONS, default='ANY')
     calories = models.IntegerField()
@@ -151,12 +140,8 @@ class Recipe(models.Model):
     def total_time(self):
         return self.prep_time + self.cook_time
 
-    def has_all_ingredients(self, ingredients):
-        in_common = set(self.ingredients.all()).intersection(ingredients)
-        return len(in_common) == len(ingredients)
-
     def image(self):
-        return self.posts.first().header_image.image
+        return self.post.header_image.image
 
     def __str__(self):
         return self.name

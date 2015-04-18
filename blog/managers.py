@@ -16,17 +16,19 @@ class PostManager(models.Manager):
         return self.published().filter(type='TRAVEL')
 
 class RecipeBrowserManager(models.Manager):
-    def filter(self, **kwargs):
-        ingredients = kwargs.get('ingredients', [])
-        recipes = self.all()
-        return [r for r in recipes if
-                r.has_all_ingredients(ingredients)]
+    def filter(self, form):
+        ingredients = form.get('ingredients', [])
+        meal_type = form.get('meal_type', None)
+        diets = form.get('diets', [])
+        recipes = self.model.objects
 
-    def all(self):
-        return self.model.objects.all()
+        if meal_type:
+            recipes = recipes.filter(meal_type__name=meal_type.name)
 
+        for i in ingredients:
+            recipes = recipes.filter(ingredients__name=i)
 
-class IngredientBrowserManager(models.Manager):
-    def all(self):
-        return self.model.objects.annotate(
-            recipe_count=Count('recipes')).filter(recipe_count__gt=0)
+        for d in diets:
+            recipes = recipes.filter(diets__name=d.name)
+
+        return recipes

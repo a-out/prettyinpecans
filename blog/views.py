@@ -31,8 +31,7 @@ def recipe_browser(request):
     if request.method == 'POST':
         form = RecipeBrowserForm(request.POST)
         if form.is_valid():
-            filtered_recipes = Recipe.browser.filter(
-                ingredients=form.cleaned_data['ingredients'])
+            filtered_recipes = Recipe.browser.filter(form.cleaned_data)
             return render(request,
                     'blog/recipe_browser.html',
                     {'form': form, 'recipes': filtered_recipes, 'show_clear': True})
