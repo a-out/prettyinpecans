@@ -1,6 +1,6 @@
 <div class="row recipe">
    <div class="four columns">
-      <img src="{{ recipe.image.url }}" />
+      <a href="{% url 'detail' recipe.post.slug %}"><img src="{{ recipe.image.url }}" /></a>
    </div>
    <div class="eight columns">
       <h4>{{ recipe.name }}</h4>

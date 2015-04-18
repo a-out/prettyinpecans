@@ -48,17 +48,6 @@ class PostTests(TestCase):
 class RecipeBrowserTests(TestCase):
     fixtures = ['recipes']
 
-    def test_recipe_browser_by_ingredient(self):
-        ingredients = get_ingredients(['butter', 'bread'])
-        matches = Recipe.browser.filter(ingredients=ingredients)
-        for m in matches:
-            for i in ingredients:
-                self.assertTrue(i in m.ingredients.all())
-
-    def test_all_ingredients_have_recipes(self):
-        ingredients = Ingredient.browser.all()
-        for i in ingredients:
-            self.assertFalse(i.recipes.count() == 0)
 
 
 class ImageTests(TestCase):

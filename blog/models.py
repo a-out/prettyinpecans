@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 
-from .managers import PostManager, RecipeBrowserManager, IngredientBrowserManager
+from .managers import PostManager, RecipeBrowserManager
 
 import markdown
 import uuid
@@ -83,9 +83,6 @@ class Post(models.Model):
 class Ingredient(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
-    objects = models.Manager()
-    browser = IngredientBrowserManager()
-
     def save(self, *args, **kwargs):
         # ingredient names should be all lowercase
         self.name = self.name.lower()
@@ -156,7 +153,7 @@ class Recipe(models.Model):
         return len(in_common) == len(ingredients)
 
     def image(self):
-        return self.posts.first().header_image.image
+        return self.post.header_image.image
 
     def __str__(self):
         return self.name
