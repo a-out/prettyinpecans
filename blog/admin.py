@@ -40,6 +40,7 @@ class RecipeInline(admin.StackedInline):
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('type', 'title', 'written_on', 'published')
+    list_display_links = ('title',)
     fieldsets = [
         ('Meta',    {'fields': ['title', 'slug', 'type', 'published']}),
         ('Content', {'fields': ['body', 'header_image']})
