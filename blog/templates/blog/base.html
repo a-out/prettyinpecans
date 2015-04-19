@@ -9,40 +9,42 @@
       <link rel="stylesheet" type="text/css" href="{% static 'bower_components/skeleton-css/css/skeleton.css' %}">
       <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}{% compile 'css/style.less' %}">
       <script type="text/javascript" src="{% static 'js/sns.js' %}"></script>
+
       <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-      <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
    </head>
    <body>
-   <div class="container site-container">
 
-      <div class="row" id="header">
-         <div class="half column left-aligned">
-            <!-- social media links -->
+   <div class="site-container container">
+
+      <div class="header">
+         <div class="masthead">
+            <a href="#">Sparkles and Spice</a>
          </div>
 
-         <div class="full column masthead" role="banner">
-            <a href="/">Sparkles and Spice</a>
-         </div>
-
-         <div class="navbar">
+         <div class="nav">
             <ul class="nav-list">
-               <li class="nav-item"><a href="{% url 'food_index' %}">Food</a></li>
-               <li class="nav-item"><a href="{% url 'recipe_browser' %}">Recipes</a></li>
-               <li class="nav-item"><a href="{% url 'fashion_index' %}">Fashion</a></li>
-               <li class="nav-item"><a href="#">About</a></li>
-               <li class="nav-item"><a href="#">Contact</a></li>
+               <li class="nav-link"><a href="#">Contact</a></li>
+               <li class="nav-link"><a href="#">About</a></li>
+               <li class="nav-link"><a href="#">Fashion</a></li>
+               <li class="nav-link"><a href="#">Recipes</a></li>
+               <li class="nav-link"><a href="#">Food</a></li>
             </ul>
          </div>
-
       </div>
 
       <div class="row">
-         {% block content %}{% endblock %}
+         <div class="two-thirds column">
+            {% block content %}{% endblock %}
+         </div>
+
+         <div class="one-third column"></div>
       </div>
 
-      <div class="row footer">
-         {% include "blog/footer.html" %}
-      </div>
+
    </div>
+
+
+
    </body>
 </html>
