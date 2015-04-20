@@ -34,11 +34,13 @@
       </div>
 
       <div class="row">
-         <div class="two-thirds column">
+         <div class="two-thirds column main">
             {% block content %}{% endblock %}
          </div>
 
-         <div class="one-third column"></div>
+         <div class="one-third column sidebar">
+            {% include "blog/sidebar.html" %}
+         </div>
       </div>
 
 

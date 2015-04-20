@@ -2,9 +2,7 @@
 
 <div class="post">
     <div class="post-header row">
-        <span class="post-title">
-            <a href="{% url 'detail' post.slug %}">{{ post.title }}</a>
-        </span>
+        <a href="{% url 'detail' post.slug %}" class="post-title">{{ post.title }}</a>
     </div>
     <div class="row">
         <div class="two columns">
@@ -12,7 +10,10 @@
         </div>
     </div>
     <img src="{{ post.header_image.image.url }}" />
-    {{ post.truncated_body | safe }}
+
+    <div class="post-body">
+        {{ post.truncated_body | safe }}
+    </div>
 
     <p><a href="{% url 'detail' post.slug %}">Read more &#8594;</a></p>
 </div>

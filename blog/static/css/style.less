@@ -1,7 +1,36 @@
+@import "recipe-card.less";
+
 @light-pink: #ffe2e3;
 @pink: darken(@light-pink, 20%);
 @blue: #9cbfca;
+@grey: #aaa;
 
+@main-padding: 15px;
+
+body {
+   background-color: @blue;
+}
+
+.container {
+   background-color: #fff;
+}
+
+a {
+      text-decoration: none;
+      color: @blue;
+}
+
+a:hover {
+   color: @pink;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   color: @blue;
+}
+
+.main {
+   padding: 0 @main-padding 0 @main-padding;
+}
 
 .masthead {
    z-index: 3;
@@ -43,4 +72,35 @@
       text-decoration: none;
       text-transform: uppercase;
    }
+}
+
+.post {
+
+   border-bottom: 1px solid @grey;
+   width: 100%;
+
+   img {
+      max-width: 625px - (2 * @main-padding);
+   }
+
+}
+
+.post-title {
+   font-size: 36px;
+}
+
+.sidebar {
+   text-align: center;
+}
+
+.sidebar-about-pic {
+   width: 250px;
+   height: 250px;
+   margin-bottom: 25px;
+   margin-left: 21px;
+   border-radius: 150px;
+   -webkit-border-radius: 150px;
+   -moz-border-radius: 150px;
+   background: url(http://www.trulygraphics.com/wp-content/uploads/2010/09/two-cats.jpg) no-repeat;
+   border: 2px solid @pink;
 }

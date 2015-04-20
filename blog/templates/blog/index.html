@@ -4,10 +4,8 @@
 
 {% block content %}
 
-<div class="two-thirds column">
     {% for post in latest_posts %}
-        {% include "blog/post_condensed.html" with post=post %}
+        {% include "blog/post_teaser.html" with post=post %}
     {% endfor %}
-</div>
 
 {% endblock %}
