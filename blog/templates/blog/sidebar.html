@@ -1,3 +1,5 @@
+{% load random_recipe_name %}
+
 <h1>About Us</h1>
 
 <div class="sidebar-about-pic"></div>
@@ -5,11 +7,9 @@
 <p>We're just two kitties who love food, fitness and fun.</p>
 
 <ul class="featured">
-    <li><a href="#">Featured Recipe</a></li>
-    <li><a href="#">Featured Recipe</a></li>
-    <li><a href="#">Featured Recipe</a></li>
-    <li><a href="#">Featured Recipe</a></li>
-    <li><a href="#">Featured Recipe</a></li>
-    <li><a href="#">Featured Recipe</a></li>
-    <li><a href="#">Featured Recipe</a></li>
+    <li><a href="#">{% random_recipe_name %}</a></li>
+    <li><a href="#">{% random_recipe_name %}</a></li>
+    <li><a href="#">{% random_recipe_name %}</a></li>
+    <li><a href="#">{% random_recipe_name %}</a></li>
+    <li><a href="#">{% random_recipe_name %}</a></li>
 </ul>
