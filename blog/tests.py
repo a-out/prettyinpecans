@@ -2,6 +2,7 @@ from django.test import TestCase
 
 from datetime import datetime
 import re
+from collections import Counter
 
 from blog.models import *
 
@@ -33,6 +34,23 @@ class PostTests(TestCase):
 
     def test_post_has_recipes(self):
         self.assertTrue(self.post.recipes.count() > 0)
+
+
+class RelatedPosts(TestCase):
+    fixtures = ['recipes']
+
+    def setUp(self):
+        posts = [
+            'Big Boy Cake',
+            'Springtime Fresh Blueberry Pie',
+            'Healthy Banana Pancakes'
+        ]
+        self.posts = Post.objects.filter(title__in=posts)
+
+    def test_related_recipe(self):
+        post = Post.objects.first()
+        related = Post.objects.related(post)
+        return self.assertEqual(Counter(related), Counter(self.posts))
 
 
 class RecipeBrowserTests(TestCase):

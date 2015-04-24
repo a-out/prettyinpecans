@@ -43,9 +43,9 @@
     "model": "blog.post",
     "pk": 3,
     "fields": {
-        "slug": "springtime-freseh-blueberry-pie",
+        "slug": "springtime-fresh-blueberry-pie",
         "written_on": "2015-04-18T23:09:08.203Z",
-        "title": "Springtime Freseh Blueberry Pie",
+        "title": "Springtime Fresh Blueberry Pie",
         "body": "It's great.",
         "published": true,
         "type": "FOOD",
