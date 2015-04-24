@@ -21,17 +21,18 @@ class PostManager(models.Manager):
 
     def related(self, post):
         if post.type == 'FOOD':
-            return self._related_food(post.recipes.first())
+            return self._related_food(post)
         elif post.type == 'FASHION':
             return self.fashion()[:self.RELATED_POST_COUNT]
         else:
             return self.travel()[:self.RELATED_POST_COUNT]
 
     # find similar food posts based on recipe
-    def _related_food(self, recipe):
+    def _related_food(self, post):
         # for each ingredient of our recipe, find other recipes
         # that share the same ingredient. We'll end up with a 
         # flat list of recipes, with possible (probable) duplicates.
+        recipe = post.recipes.first()
         similar_recipes = []
         for i in recipe.ingredients.all():
             similar_recipes += filter(
@@ -45,7 +46,7 @@ class PostManager(models.Manager):
         # some random food posts.
         if (len(most_similar) < self.RELATED_POST_COUNT):
             needed_posts = self.RELATED_POST_COUNT - len(most_similar)
-            most_similar += self.food()[:needed_posts]
+            most_similar += self.food().exclude(title=post.title)[:needed_posts]
 
         return most_similar
 

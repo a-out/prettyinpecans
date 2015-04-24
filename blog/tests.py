@@ -42,15 +42,20 @@ class RelatedPosts(TestCase):
     def setUp(self):
         posts = [
             'Big Boy Cake',
-            'Springtime Fresh Blueberry Pie',
+            'Taco Bowls',
             'Healthy Banana Pancakes'
         ]
         self.posts = Post.objects.filter(title__in=posts)
 
     def test_related_recipe(self):
-        post = Post.objects.first()
+        post = Post.objects.get(title='Springtime Fresh Blueberry Pie')
         related = Post.objects.related(post)
         return self.assertEqual(Counter(related), Counter(self.posts))
+
+    def test_related_recipe_exclude_self(self):
+        post = Post.objects.get(title='Healthy Banana Pancakes')
+        related = Post.objects.related(post)
+        return self.assertFalse(post in related)
 
 
 class RecipeBrowserTests(TestCase):
