@@ -10,6 +10,23 @@
                 {% include "blog/recipe_card.html" with recipe=recipe %}
             {% endfor %}
         {% endif %}
+
+        <div class="related-posts">
+            <h3>If you liked this...</h3>
+
+            <div class="row">
+                {% for related in related_posts %}
+                    <div class="one-third column">
+                        <a href="{% url 'detail' related.slug %}">
+                            <div class="related-post" data-post-title="{{ related.title }}">
+                                <img src="{{ related.header_image.image.url }}" alt="{{ related.title }}" />
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
     </div>
 
     <div class="one-third column sidebar">

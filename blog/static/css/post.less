@@ -1,0 +1,56 @@
+.post-title {
+   font-size: 1.8em;
+   letter-spacing: -0.01em;
+   margin-bottom: 10px;
+}
+
+.post-date {
+   opacity: 0.6;
+}
+
+.related-posts {
+   margin-top: 25px;
+}
+
+.related-post {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.related-post img {
+    width: 100%;
+    width: 200px;
+    height: 200px;
+    vertical-align: top;
+}
+
+.related-post:after, .related-post:before {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+
+.related-post:after {
+    content:'\A';
+    width:100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+}
+
+.related-post:before {
+    content: attr(data-post-title);
+    width:100%;
+    color: #fff;
+    z-index: 1;
+    bottom: 90px;
+    padding: 4px 10px;
+    text-align: center;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+
+.related-post:hover:after, .related-post:hover:before {
+    opacity:1;
+}

@@ -27,6 +27,11 @@ class DetailView(generic.DetailView):
     model = Post
     template_name = 'blog/detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        context['related_posts'] = Post.objects.related(context['post'])
+        return context
+
 def recipe_browser(request):
     if request.method == 'POST':
         form = RecipeBrowserForm(request.POST)
