@@ -15,34 +15,30 @@
    <body>
    <div class="container site-container">
 
-      <div class="row" id="header">
-         <div class="half column left-aligned">
-            <!-- social media links -->
-         </div>
-
-         <div class="full column masthead" role="banner">
-            <a href="/">Sparkles and Spice</a>
-         </div>
-
-         <div class="navbar">
+      <div class="row">
+         <div class="two-thirds column navbar">
             <ul class="nav-list">
-               <li class="nav-item"><a href="{% url 'food_index' %}">Food</a></li>
-               <li class="nav-item"><a href="{% url 'recipe_browser' %}">Recipes</a></li>
-               <li class="nav-item"><a href="{% url 'fashion_index' %}">Fashion</a></li>
-               <li class="nav-item"><a href="#">About</a></li>
-               <li class="nav-item"><a href="#">Contact</a></li>
+               <li class="nav-item"><a href="#">FOOD</a></li>
+               <li class="nav-item"><a href="#">RECIPES</a></li>
+               <li class="nav-item"><a href="#">FASHION</a></li>
+               <li class="nav-item"><a href="#">TRAVEL</a></li>
+               <li class="nav-item"><a href="#">ABOUT</a></li>
             </ul>
          </div>
-
       </div>
 
       <div class="row">
-         {% block content %}{% endblock %}
+         <div class="two-thirds column main-content">
+            {% block content %}{% endblock %}
+         </div>
+
+         <div class="one-third column">
+            {% if show_sidebar %}
+               {% include "blog/sidebar.html" %}
+            {% endif %}
+         </div>
       </div>
 
-      <div class="row footer">
-         {% include "blog/footer.html" %}
-      </div>
    </div>
    </body>
 </html>

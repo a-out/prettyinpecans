@@ -9,6 +9,11 @@ class IndexView(generic.ListView):
     template_name = 'blog/index.html'
     context_object_name = 'latest_posts'
 
+    def get_context_data(self, **kwargs):
+        context = super(IndexView, self).get_context_data(**kwargs)
+        context['show_sidebar'] = True
+        return context
+
     def get_queryset(self):
         return Post.objects.published().order_by('-written_on')[:5]
 
