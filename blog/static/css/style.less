@@ -42,15 +42,19 @@ body {
 .nav-item {
    display: inline-block;
    text-align: center;
-   width: 122px;
+   width: 101px;
 
    a {
       text-decoration: none;
-      color: #e89393;
+      color: #333;
       text-transform: uppercase;
       display: inline-block;
       width: 100%;
       border: 1px solid #ffffff;
+   }
+
+   a.at {
+      border: 1px solid lighten(#e89393, 10%);
    }
 
    a:hover {
@@ -85,7 +89,8 @@ body {
    }
 
    img {
-      max-width: 600px;
+      max-width: 100%;
+      max-height: 100%;
    }
 }
 
@@ -160,5 +165,7 @@ a {
 }
 
 #sns-logo {
-   margin-top: 68px;
+   width: 295px;
+   height: 314px;
+   margin-top: -50px;
 }

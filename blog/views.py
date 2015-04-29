@@ -12,6 +12,7 @@ class IndexView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['show_sidebar'] = True
+        context['at'] = 'home'
         return context
 
     def get_queryset(self):
@@ -22,15 +23,30 @@ class FoodIndexView(IndexView):
     def get_queryset(self):
         return Post.objects.food().order_by('-written_on')
 
+    def get_context_data(self, **kwargs):
+        context = super(FoodIndexView, self).get_context_data(**kwargs)
+        context['at'] = 'food'
+        return context
+
 
 class FashionIndexView(IndexView):
     def get_queryset(self):
         return Post.objects.fashion().order_by('-written_on')
 
+    def get_context_data(self, **kwargs):
+        context = super(FashionIndexView, self).get_context_data(**kwargs)
+        context['at'] = 'fashion'
+        return context
+
 
 class TravelIndexView(IndexView):
     def get_queryset(self):
         return Post.objects.travel().order_by('-written_on')
+
+    def get_context_data(self, **kwargs):
+        context = super(TravelIndexView, self).get_context_data(**kwargs)
+        context['at'] = 'travel'
+        return context
 
 
 class DetailView(generic.DetailView):
@@ -50,10 +66,10 @@ def recipe_browser(request):
             filtered_recipes = Recipe.browser.filter(form.cleaned_data)
             return render(request,
                     'blog/recipe_browser.html',
-                    {'form': form, 'recipes': filtered_recipes, 'show_clear': True})
+                    {'form': form, 'recipes': filtered_recipes, 'show_clear': True, 'at': 'recipes'})
     else:
         form = RecipeBrowserForm()
 
     return render(request,
         'blog/recipe_browser.html',
-        {'form': form, 'recipes': Recipe.browser.all(), 'show_clear': False})
+        {'form': form, 'recipes': Recipe.browser.all(), 'show_clear': False, 'at': 'recipes'})
