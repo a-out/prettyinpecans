@@ -28,6 +28,11 @@ class FashionIndexView(IndexView):
         return Post.objects.fashion().order_by('-written_on')
 
 
+class TravelIndexView(IndexView):
+    def get_queryset(self):
+        return Post.objects.travel().order_by('-written_on')
+
+
 class DetailView(generic.DetailView):
     model = Post
     template_name = 'blog/detail.html'
@@ -35,6 +40,7 @@ class DetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         context['related_posts'] = Post.objects.related(context['post'])
+        context['show_sidebar'] = True
         return context
 
 def recipe_browser(request):
