@@ -18,27 +18,29 @@
       <div class="row">
          <div class="two-thirds column navbar">
             <ul class="nav-list">
-               <li class="nav-item"><a href="#">FOOD</a></li>
-               <li class="nav-item"><a href="#">RECIPES</a></li>
-               <li class="nav-item"><a href="#">FASHION</a></li>
-               <li class="nav-item"><a href="#">TRAVEL</a></li>
+               <li class="nav-item"><a href="{% url 'food_index' %}">FOOD</a></li>
+               <li class="nav-item"><a href="{% url 'recipe_browser' %}">RECIPES</a></li>
+               <li class="nav-item"><a href="{% url 'fashion_index' %}">FASHION</a></li>
+               <li class="nav-item"><a href="{% url 'travel_index' %}">TRAVEL</a></li>
                <li class="nav-item"><a href="#">ABOUT</a></li>
             </ul>
          </div>
       </div>
 
       <div class="row">
-         <div class="two-thirds column main-content">
-            {% block content %}{% endblock %}
-         </div>
+         {% if show_sidebar %}
+            <div class="two-thirds column main-content">
+               {% block content %}{% endblock %}
+            </div>
 
-         <div class="one-third column">
-            {% if show_sidebar %}
-               {% include "blog/sidebar.html" %}
-            {% endif %}
-         </div>
+            <div class="one-third column sidebar">
+               {% include 'blog/sidebar.html' %}
+            </div>
+         {% else %}
+            <div class="twelve columns main-content">
+               {% block content-fullwidth %}{% endblock %}
+            </div>
+         {% endif %}
       </div>
-
-   </div>
    </body>
 </html>

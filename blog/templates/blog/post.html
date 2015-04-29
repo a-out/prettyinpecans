@@ -2,7 +2,9 @@
 
 <div class="post">
     <div class="post-header row">
-        <span class="post-title">{{ post.title }}</span>
+        <span class="post-title">
+            {{ post.title }}
+        </span>
     </div>
     <div class="row">
         <div class="two columns">
@@ -10,9 +12,5 @@
         </div>
     </div>
     <img src="{{ post.header_image.image.url }}" />
-    {% lorem 3 p %}
-
-    {% if post.is_modified %}
-        <span class="muted"><em>Edited on {{ post.edited_on }}</em></span>
-    {% endif %}
+    {{ post.html | safe }}
 </div>

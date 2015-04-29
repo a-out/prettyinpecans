@@ -40,13 +40,24 @@ body {
 }
 
 .nav-item {
-   display: inline;
-   padding-right: 65px;
+   display: inline-block;
+   text-align: center;
+   width: 122px;
 
    a {
       text-decoration: none;
-      color: #444;
+      color: #e89393;
       text-transform: uppercase;
+      display: inline-block;
+      width: 100%;
+      border: 1px solid #ffffff;
+   }
+
+   a:hover {
+      text-decoration: none;
+      color: #e89393;
+      border: 1px solid #e89393;
+      width: 100%;
    }
 }
 
@@ -141,4 +152,13 @@ a {
 
 .sidebar {
    text-align: center;
+
+   img {
+         margin-left: auto;
+         margin-right: auto;
+      }
+}
+
+#sns-logo {
+   margin-top: 68px;
 }

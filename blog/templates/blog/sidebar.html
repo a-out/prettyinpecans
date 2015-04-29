@@ -1,1 +1,5 @@
-<h3>Meow</h3>
+{% load staticfiles %}
+
+<a href="{% url 'index' %}">
+   <img id="sns-logo" src="{% static 'images/logo_cropped.png' %}">
+</a>
