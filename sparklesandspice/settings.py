@@ -23,6 +23,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django_extensions',
     'static_precompiler',
+    'newsletter',
     'blog'
 )
 

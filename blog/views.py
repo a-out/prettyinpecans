@@ -4,6 +4,7 @@ from django.views import generic
 
 from blog.models import Post, Recipe
 from .forms import RecipeBrowserForm
+from newsletter.forms import SubscribeForm
 
 class IndexView(generic.ListView):
     template_name = 'blog/index.html'
@@ -13,6 +14,7 @@ class IndexView(generic.ListView):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['show_sidebar'] = True
         context['at'] = 'home'
+        context['subscribe_form'] = SubscribeForm()
         return context
 
     def get_queryset(self):
