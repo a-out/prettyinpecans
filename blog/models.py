@@ -65,9 +65,11 @@ class Post(models.Model):
         return render_markdown(self.body, self.images.all())
 
     def pretty_date(self):
+        # remove leading 0 from day
         day = self.written_on.strftime("%d").lstrip("0")
         month_name = self.written_on.strftime("%B")
-        return "{} {}".format(month_name, day)
+        year = self.written_on.strftime("%Y")
+        return "{} {}, {}".format(month_name, day, year)
 
     def is_modified(self):
         return (self.edited_on - self.written_on).seconds > 2
