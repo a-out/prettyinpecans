@@ -5,12 +5,10 @@
         <span class="post-title">
             <a href="{% url 'detail' post.slug %}">{{ post.title }}</a>
         </span>
+        <span class="post-date">{{ post.pretty_date }}</span>
+        <div style="clear: both;"></div>
     </div>
-    <div class="row">
-        <div class="two columns">
-            <span class="post-date">{{ post.pretty_date }}</span>
-        </div>
-    </div>
+    
     <img src="{{ post.header_image.image.url }}" />
     {{ post.truncated_body | safe }}
 
