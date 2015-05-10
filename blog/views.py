@@ -59,6 +59,8 @@ class DetailView(generic.DetailView):
         context = super(DetailView, self).get_context_data(**kwargs)
         context['related_posts'] = Post.objects.related(context['post'])
         context['show_sidebar'] = True
+        # todo: DRY -- inherit somehow
+        context['subscribe_form'] = SubscribeForm()
         return context
 
 def recipe_browser(request):
