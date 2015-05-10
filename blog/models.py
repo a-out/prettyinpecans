@@ -2,34 +2,7 @@ from django.db import models
 from django.conf import settings
 
 from .managers import PostManager, RecipeBrowserManager
-
-import markdown
-import uuid
-from datetime import datetime
-import os
-
-def render_markdown(md_text, images=[]):
-    image_ref = ""
-
-    for image in images:
-        image_url = image.image.url
-        image_ref = "{}\n[{}]: {}".format(image_ref, image, image_url)
-
-    md = "{}\n{}".format(md_text, image_ref)
-    return markdown.markdown(md)
-
-def random_file_path(img_instance, filename):
-    now = datetime.now()
-    file_ext = filename.split('.')[-1]
-    path =  "{y}/{m}/{n}.{e}".format(
-        y=now.year,
-        m=now.month,
-        n=uuid.uuid4().hex,
-        e=file_ext
-    )
-    return os.path.join('images', path)
-
-# -------------------------------------------------------------------
+from .utils import render_markdown, random_file_path, before_jump
 
 class Image(models.Model):
     name = models.CharField(max_length=50)
@@ -74,9 +47,8 @@ class Post(models.Model):
     def is_modified(self):
         return (self.edited_on - self.written_on).seconds > 2
 
-    def truncated_body(self):
-        return render_markdown(''.join(self.body.split('\n')[:1]),
-                               self.images.all())
+    def truncated_html(self):
+        return render_markdown(before_jump(self.body), self.images.all())
 
     def __str__(self):
         return self.title

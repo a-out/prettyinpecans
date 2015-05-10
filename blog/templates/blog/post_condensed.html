@@ -10,7 +10,7 @@
     </div>
     
     <img src="{{ post.header_image.image.url }}" />
-    {{ post.truncated_body | safe }}
+    {{ post.truncated_html | safe }}
 
     <p><a href="{% url 'detail' post.slug %}">Read more &#8594;</a></p>
 </div>
