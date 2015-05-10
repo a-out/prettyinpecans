@@ -2,15 +2,13 @@
 
 <div class="post">
     <div class="post-header row">
-        <span class="post-title">
-            {{ post.title }}
-        </span>
+        <h2 class="post-title">
+            <a href="{% url 'detail' post.slug %}">{{ post.title }}</a>
+        </h2>
+        <span class="post-date">{{ post.pretty_date }}</span>
+        <div style="clear: both;"></div>
     </div>
-    <div class="row">
-        <div class="two columns">
-            <span class="post-date">{{ post.pretty_date }}</span>
-        </div>
-    </div>
+    
     <img src="{{ post.header_image.image.url }}" />
     {{ post.html | safe }}
 </div>

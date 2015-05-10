@@ -1,33 +1,35 @@
 @import "post.less";
 
 body {
-   font-family: 'Roboto Slab', serif;
+   font-family: 'Roboto Slab', sans-serif;
+   font-size: 1.3em;
+   margin-bottom: 0;
+   margin-top: 1px;
 }
 
-.masthead {
-   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-   font-size: 36px;
-   width: 100%;
-   margin-left: 0;
-   text-align: center;
-
-   a {
-      text-decoration: none;
-   }
-
-   a:hover {
-      color: inherit;
-   }
+p {
+   margin-bottom: 1.0rem;
 }
+
+h1, h2, h3, h4, h5, h6 {
+   font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1 { font-size: 20px; }
+h2 { font-size: 18px; }
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
 
 #header {
    border-bottom: 2px dashed #aaa;
    margin-bottom: 2rem;
-
 }
 
 .navbar {
+   font-family: 'Roboto Condensed', sans-serif;
+   font-size: 1.2em;
    margin-bottom: 25px;
+   margin-top: 0;
 
    ul {
       margin-bottom: 0;
@@ -68,7 +70,7 @@ body {
    margin: 0 15px 0 15px 0;
 }
 
-.footer {
+#footer {
    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
    border-top: 1px solid #ddd;
    margin-top: 25px;
@@ -79,7 +81,8 @@ body {
    list-style: none;
 }
 
-.post {
+.post, .post-condensed {
+   margin-bottom: 2.5rem;
    font-size: 1.0em;
 
    p {
@@ -93,16 +96,10 @@ body {
    }
 }
 
-.post-title a {
-   text-decoration: none;
-   font-size: 16px;
-   float: left;
-}
-
 .post-date {
    float: right;
    font-size: 12px;
-   padding-top: 4px;
+   padding-top: 6px;
 }
 
 .recipe img {
@@ -118,21 +115,20 @@ a {
    color: #333;
 }
 
+.related-text {
+   margin-bottom: 5px;
+}
+
 .latest-recipes {
    list-style: outside none none;
 }
 
 .recipe-card  {
-   background-color: #eee;
+   background-color: #F6F6F6;
    padding: 10px 10px 10px 10px;
    border-radius: 3px;
 
-   h1 {
-      font-size: 2.0em;
-   }
-
    h2 {
-      font-size: 1.5em;
       margin-bottom: 2px;
    }
 
@@ -199,7 +195,7 @@ a {
 }
 
 .subscribe {
-   background-color: #eee;
+   background-color: #F6F6F6;
    padding-top: 15px;
    min-height: 100px;
    border-radius: 3px;
