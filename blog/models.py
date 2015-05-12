@@ -50,6 +50,16 @@ class Post(models.Model):
     def truncated_html(self):
         return render_markdown(before_jump(self.body), self.images.all())
 
+    def recipes_list(self):
+        if self.recipes.count() > 0:
+            return ", ".join([r.name for r in self.recipes.all()])
+        return ""
+
+    def ingredients_list(self):
+        if self.recipes.count() > 0:
+            return ", ".join([r.ingredients_list() for r in self.recipes.all()])
+        return ""
+
     def __str__(self):
         return self.title
 
@@ -116,6 +126,9 @@ class Recipe(models.Model):
 
     def image(self):
         return self.post.header_image.image
+
+    def ingredients_list(self):
+        return ", ".join([i.name for i in self.ingredients.all()])
 
     def __str__(self):
         return self.name

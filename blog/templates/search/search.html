@@ -1,0 +1,11 @@
+<div class="sidebar-form"> 
+   Search
+
+   <form method="get" action="/search/">
+       {% csrf_token %}
+       {{ search_form }}
+       <input type="submit" id="sidebar-form-icon" class="fa" value="&#xf002;" />
+   </form>
+
+   <span id="sidebar-form-messages" class="u-muted"></span>
+</div>

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.views import generic
 
 from blog.models import Post, Recipe
-from .forms import RecipeBrowserForm
+from .forms import RecipeBrowserForm, RecipeSearchForm
 from newsletter.forms import SubscribeForm
 
 class IndexView(generic.ListView):
@@ -15,6 +15,7 @@ class IndexView(generic.ListView):
         context['show_sidebar'] = True
         context['at'] = 'home'
         context['subscribe_form'] = SubscribeForm()
+        context['search_form'] = RecipeSearchForm()
         return context
 
     def get_queryset(self):

@@ -6,6 +6,7 @@ class SubscribeForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'id': 'subscribe-input',
+                'class': 'sidebar-form-input',
                 'placeholder': 'Email'
             }
         )

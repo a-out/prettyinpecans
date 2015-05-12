@@ -1,11 +1,11 @@
-<div class="subscribe"> 
-   <span id="subscribe-text">Subscribe</span>
+<div class="sidebar-form"> 
+   <span class="sidebar-form-text">Subscribe</span>
 
    <form id="subscribe-form">
        {% csrf_token %}
        {{ subscribe_form }}
-       <input type="submit" id="subscribe-envelope" class="fa" value="&#xf0e0;" />
+       <input type="submit" class="fa sidebar-form-icon" value="&#xf0e0;" />
    </form>
 
-   <span id="subscribe-messages" class="u-muted"></span>
+   <span class="sidebar-form-messages u-muted"></span>
 </div>
