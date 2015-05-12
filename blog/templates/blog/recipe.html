@@ -1,9 +1,4 @@
-<div class="row recipe">
-   <div class="four columns">
-      <a href="{% url 'detail' recipe.post.slug %}"><img src="{{ recipe.image.url }}" /></a>
-   </div>
-   <div class="eight columns">
-      <h4>{{ recipe.name }}</h4>
-      <p>{{ recipe.description }}</p>
-   </div>
+<a href="{% url 'detail' recipe.post.slug %}">
+<div class="recipe-browser-recipe" data-recipe-name="{{ recipe.name }}">
+    <img src="{{ recipe.image.url }}" alt="{{ recipe.nae }}" />
 </div>

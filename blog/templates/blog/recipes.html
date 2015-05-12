@@ -1,9 +1,12 @@
 {% if recipes %}
    <h1>Recipes</h1>
 
-   {% for recipe in recipes %}
-      {% include 'blog/recipe.html' with recipe=recipe %}
-   {% endfor %}
+   <div class="recipe-grid">
+      {% for recipe in recipes %}
+         {% include 'blog/recipe.html' with recipe=recipe %}
+      {% endfor %}
+   </div>
+
 {% else %}
    <h1>No matching recipes</h1>
 {% endif %}

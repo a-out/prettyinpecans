@@ -1,4 +1,7 @@
 @import "post.less";
+@import "recipe-browser.less";
+
+@recipe-size: 150px;
 
 body {
    font-family: 'Roboto Slab', sans-serif;
@@ -67,7 +70,6 @@ h4 { font-size: 14px; }
 }
 
 .main-content {
-   margin: 0 15px 0 15px 0;
    min-height: 600px;
 }
 
@@ -85,6 +87,7 @@ h4 { font-size: 14px; }
 .post, .post-condensed {
    margin-bottom: 2.5rem;
    font-size: 1.0em;
+   margin: 0 25px 0 25px;
 
    p {
       margin-left: 5px;
@@ -92,8 +95,10 @@ h4 { font-size: 14px; }
    }
 
    img {
-      max-width: 100%;
+      width: 90%;
       max-height: 100%;
+      margin-left: auto;
+      margin-right: auto;
    }
 }
 

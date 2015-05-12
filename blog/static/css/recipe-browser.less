@@ -1,0 +1,47 @@
+.recipe-browser-recipe {
+   position: relative;
+   width: @recipe-size;
+   height: @recipe-size;
+   margin: 0 10px 10px 0;
+}
+
+.recipe-browser-recipe img {
+   width: 100%;
+   width: @recipe-size;
+   height: @recipe-size;
+   vertical-align: top;
+}
+
+.recipe-browser-recipe:after, .recipe-browser-recipe:before {
+   position: absolute;
+   opacity: 0;
+   transition: all 0.5s;
+   -webkit-transition: all 0.5s;
+}
+
+.recipe-browser-recipe:after {
+   content:'\A';
+   width:100%; height:100%;
+   top:0; left:0;
+   background:rgba(0,0,0,0.6);
+}
+
+.recipe-browser-recipe:before {
+   content: attr(data-recipe-name);
+   width:100%;
+   color: #fff;
+   z-index: 1;
+   bottom: 65px;
+   padding: 4px 10px;
+   text-align: center;
+   box-sizing:border-box;
+   -moz-box-sizing:border-box;
+}
+
+.recipe-browser-recipe:hover:after, .recipe-browser-recipe:hover:before {
+   opacity:1;
+}
+
+.recipe-browser-recipe{
+   display: inline-block;
+}
