@@ -1,4 +1,4 @@
-from sparklesandspice import settings
+from prettyinpecans import settings
 
 import mailchimp
 

@@ -1,4 +1,4 @@
-from sparklesandspice.secrets import *
+from prettyinpecans.secrets import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -59,9 +59,9 @@ TEMPLATES = [
     },
 ]
 
-ROOT_URLCONF = 'sparklesandspice.urls'
+ROOT_URLCONF = 'prettyinpecans.urls'
 
-WSGI_APPLICATION = 'sparklesandspice.wsgi.application'
+WSGI_APPLICATION = 'prettyinpecans.wsgi.application'
 
 
 # Database

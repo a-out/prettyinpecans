@@ -67,4 +67,4 @@ blog/static/bower_components
 # assets copiled by django-static-precompiler
 compiled/
 
-sparklesandspice/secrets.py
+prettyinpecans/secrets.py
