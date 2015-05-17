@@ -12,7 +12,6 @@ class IndexView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['show_sidebar'] = True
         context['at'] = 'home'
         context['subscribe_form'] = SubscribeForm()
         context['search_form'] = RecipeSearchForm()
@@ -59,7 +58,6 @@ class DetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         context['related_posts'] = Post.objects.related(context['post'])
-        context['show_sidebar'] = True
         # todo: DRY -- inherit somehow
         context['subscribe_form'] = SubscribeForm()
         return context
