@@ -1,11 +1,12 @@
 {% load staticfiles %}
 {% load compile_static %}
-
 <!DOCTYPE html>
 <html lang="en">
    <head>
       <meta charset="utf-8">
       <title>Pretty in Pecans</title>
+      
+      <link rel="stylesheet" type="text/css" href="{% static 'bower_components/skeleton-css/css/normalize.css' %}">
       <link rel="stylesheet" type="text/css" href="{% static 'bower_components/skeleton-css/css/skeleton.css' %}">
       <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}{% compile 'css/style.less' %}">
       <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
@@ -16,37 +17,43 @@
       <link rel="stylesheet" type="text/css" href="{% static 'bower_components/fontawesome/css/font-awesome.min.css' %}">
    </head>
    <body>
-   <div class="container site-container">
+      <div class="container">
 
-      <div class="row">
-         <div class="two-thirds column navbar">
-            <ul class="nav-list">
-               <li class="nav-item"><a class="{% if at == 'home' %}at{% endif %}" href="{% url 'index' %}">HOME</a></li>
-               <li class="nav-item"><a class="{% if at == 'food' %}at{% endif %}" href="{% url 'food_index' %}">FOOD</a></li>
-               <li class="nav-item"><a class="{% if at == 'recipes' %}at{% endif %}" href="{% url 'recipe_browser' %}">RECIPES</a></li>
-               <li class="nav-item"><a class="{% if at == 'fashion' %}at{% endif %}" href="{% url 'fashion_index' %}">FASHION</a></li>
-               <li class="nav-item"><a class="{% if at = 'travel' %}at{% endif %}" href="{% url 'travel_index' %}">TRAVEL</a></li>
-               <li class="nav-item"><a href="#">ABOUT</a></li>
-            </ul>
+         <div class="row">
+            <div class="twelve-columns">
+               <header>
+                  <img src="{% static 'images/pip_logo.png' %}">
+                  <nav>
+                     <ul class="nav inline-items">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'food_index' %}">Food</a></li>
+                        <li><a href="{% url 'recipe_browser' %}">Recipes</a></li>
+                        <li><a href="{% url 'fashion_index' %}">Fashion</a></li>
+                        <li><a href="{% url 'travel_index' %}">Travel</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                     </ul>
+                  </nav>
+               </header>
+            </div>
          </div>
+
+         <div class="row">
+            <div id="sidebar" class="one-third column">
+               {% block sidebar %}
+                  {% include 'blog/sidebar.html' %}
+               {% endblock %}
+            </div>
+            <div id="main-content" class="two-thirds column">
+               <div class="content">
+                  {% block content %}{% endblock %}
+               </div>
+               
+            </div>
+         </div>
+         <footer>
+            {% include 'blog/footer.html' %}
+         </footer>
       </div>
-
-      <div class="row">
-         {% if show_sidebar %}
-            <div class="two-thirds column main-content">
-               {% block content %}{% endblock %}
-            </div>
-
-            <div class="one-third column sidebar">
-               {% include 'blog/sidebar.html' %}
-            </div>
-         {% else %}
-            <div class="twelve columns main-content">
-               {% block content-fullwidth %}{% endblock %}
-            </div>
-         {% endif %}
-      </div>
-
-      {% include 'blog/footer.html' %}
    </body>
 </html>

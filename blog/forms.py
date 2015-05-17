@@ -55,5 +55,6 @@ class RecipeSearchForm(SearchForm):
     q = forms.CharField(required=True, label='',
                         widget=forms.TextInput(attrs={
                             'type': 'search',
-                            'class': 'sidebar-form-input'
+                            'class': 'sidebar-form-input',
+                            'placeholder': 'Search'
                         }))

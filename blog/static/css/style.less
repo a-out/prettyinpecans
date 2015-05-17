@@ -23,59 +23,43 @@ h2 { font-size: 18px; }
 h3 { font-size: 16px; }
 h4 { font-size: 14px; }
 
-#header {
-   border-bottom: 2px dashed #aaa;
-   margin-bottom: 2rem;
+img {
+   max-width: 100%;
+   max-height: auto;
 }
 
-.navbar {
-   font-family: 'Roboto Condensed', sans-serif;
-   font-size: 1.2em;
-   margin-bottom: 25px;
-   margin-top: 0;
-
-   ul {
-      margin-bottom: 0;
-   }
+header {
+   text-align: center;
+   margin-bottom: 3em;
 }
 
-.nav-list {
-   list-style: outside none none;
+nav ul li {
+   list-style: none;
+}
+
+nav ul li a {
+   display: block;
+   padding: 0.5em;
+   text-decoration: none;
+   color: #333;
+   text-transform: uppercase;
+   font-size: 18px;
    text-align: center;
 }
 
-.nav-item {
-   display: inline-block;
-   text-align: center;
-   width: 101px;
-
-   a {
-      text-decoration: none;
-      color: #333;
-      text-transform: uppercase;
+@media all and (min-width: 30em) {
+   nav ul li {
       display: inline-block;
-      width: 100%;
-      border: 1px solid #ffffff;
+      margin: 0 1em;
    }
 
-   a.at {
-      border: 1px solid lighten(#e89393, 10%);
-   }
-
-   a:hover {
-      text-decoration: none;
-      color: #e89393;
-      width: 100%;
+   nav ul li a {
+      padding: 0;
+      border: 0;
    }
 }
 
-.main-content {
-   min-height: 600px;
-   padding: 0 25px 0 25px;
-}
-
-#footer {
-   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+footer {   
    border-top: 1px solid #ddd;
    margin-top: 25px;
    padding: 15px 25px 10px 25px;
@@ -83,6 +67,10 @@ h4 { font-size: 14px; }
 
 #copyright {
    list-style: none;
+}
+
+#sidebar {
+   margin-top: 3em;
 }
 
 .post, .post-condensed {
@@ -194,16 +182,9 @@ a {
    opacity: 0.5;
 }
 
-#sns-logo {
-   width: 295px;
-   height: 314px;
-   margin-top: -50px;
-}
-
 .sidebar-form {
-   background-color: #F6F6F6;
    padding-top: 15px;
-   min-height: 100px;
+   min-height: 50px;
    border-radius: 3px;
    margin-bottom: 5px;
 }
@@ -228,5 +209,15 @@ input[type="submit"] {
 .search-result {
    img {
       max-width: 200px;
+   }
+}
+
+
+@media screen and (min-width: 960px) {
+}
+
+@media screen and (max-width: 550px) {
+   .sidebar-content {
+      display: none;
    }
 }

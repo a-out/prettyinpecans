@@ -1,23 +1,21 @@
 {% extends "blog/base.html" %}
 
-{% block content-fullwidth %}
+{% block sidebar %}
 
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-    <div class="three columns">
-        <form action="{% url 'recipe_browser' %}" method="post" class="recipe-browser-form">
-            {% csrf_token %}
-            {{ form }}
+    <form action="{% url 'recipe_browser' %}" method="post" class="recipe-browser-form">
+        {% csrf_token %}
+        {{ form }}
 
-                {% if show_clear %}
-                    <input type="button" onclick="recipe_browser_clear()" value="Clear" />
-                {% else %}
-                    <input type="submit" value="Submit" />
-                {% endif %}
-        </form>
-    </div>
+            {% if show_clear %}
+                <input type="button" onclick="recipe_browser_clear()" value="Clear" />
+            {% else %}
+                <input type="submit" value="Submit" />
+            {% endif %}
+    </form>
+{% endblock %}
 
-    <div class="nine columns">
-        {% include 'blog/recipes.html' with recipes=recipes %}
-    </div>
+{% block content %}
+    {% include 'blog/recipes.html' with recipes=recipes %}
 {% endblock %}
