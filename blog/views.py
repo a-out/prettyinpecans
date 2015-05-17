@@ -9,6 +9,7 @@ from newsletter.forms import SubscribeForm
 class IndexView(generic.ListView):
     template_name = 'blog/index.html'
     context_object_name = 'latest_posts'
+    paginate_by = 3
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
