@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 
-{% block content-fullwidth %}
+{% block content %}
     {% if query %}
 
         {% for result in page.object_list %}
@@ -21,3 +21,5 @@
         {% endif %}
     {% endif %}
 {% endblock %}
+
+{% block sidebar %}{% endblock %}
