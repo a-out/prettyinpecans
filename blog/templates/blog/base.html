@@ -22,7 +22,7 @@
          <div class="row">
             <div class="twelve-columns">
                <header>
-                  <img src="{% static 'images/pip_logo.png' %}">
+                  <img src="{% static 'images/pip_logo.png' %}" nopin="nopin">
                   <nav>
                      <ul class="nav inline-items">
                         <li><a href="{% url 'index' %}">Home</a></li>
@@ -55,5 +55,7 @@
             {% include 'blog/footer.html' %}
          </footer>
       </div>
+
+      <script type="text/javascript" async defer data-pin-shape="round" data-pin-height="32" data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
    </body>
 </html>
