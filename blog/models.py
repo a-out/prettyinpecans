@@ -34,6 +34,9 @@ class Post(models.Model):
 
     objects = PostManager()
 
+    def get_absolute_url(self):
+        return "/posts/{}".format(self.slug)
+
     def html(self):
         return render_markdown(self.body, self.images.all())
 
