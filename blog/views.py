@@ -3,8 +3,7 @@ from django.http import HttpResponse
 from django.views import generic
 
 from blog.models import Post, Recipe
-from .forms import RecipeBrowserForm, RecipeSearchForm
-from newsletter.forms import SubscribeForm
+from .forms import RecipeBrowserForm
 
 class IndexView(generic.ListView):
     template_name = 'blog/index.html'
@@ -14,8 +13,6 @@ class IndexView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['at'] = 'home'
-        context['subscribe_form'] = SubscribeForm()
-        context['search_form'] = RecipeSearchForm()
         return context
 
     def get_queryset(self):
@@ -59,8 +56,6 @@ class DetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         context['related_posts'] = Post.objects.related(context['post'])
-        # todo: DRY -- inherit somehow
-        context['subscribe_form'] = SubscribeForm()
         return context
 
 def recipe_browser(request):

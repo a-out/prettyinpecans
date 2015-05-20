@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 
 from .managers import PostManager, RecipeBrowserManager
-from .utils import render_markdown, random_file_path, before_jump
+from .utils import render_markdown, random_file_path, before_jump, teaser
 
 class Image(models.Model):
     name = models.CharField(max_length=50)
@@ -52,6 +52,9 @@ class Post(models.Model):
 
     def truncated_html(self):
         return render_markdown(before_jump(self.body), self.images.all())
+
+    def teaser(self):
+        return render_markdown(teaser(self.body, 50))
 
     def recipes_list(self):
         if self.recipes.count() > 0:

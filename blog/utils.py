@@ -32,3 +32,8 @@ def random_file_path(img_instance, filename):
         e=file_ext
     )
     return os.path.join('images', path)
+
+def teaser(body, num_words):
+    words = body.split(' ')[:num_words]
+    truncated = ' '.join(words)
+    return truncated + '...'

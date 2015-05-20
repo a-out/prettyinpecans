@@ -5,7 +5,6 @@ from haystack.query import SearchQuerySet
 from haystack.views import SearchView
 
 from blog import views
-from .forms import RecipeSearchForm
 
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
@@ -17,7 +16,6 @@ urlpatterns = patterns('',
     url(r'^posts/(?P<slug>\S+)/$', views.DetailView.as_view(), name='detail'),
     url(r'^search/', SearchView(
         template='search/results.html',
-        searchqueryset=SearchQuerySet(),
-        form_class=RecipeSearchForm
+        searchqueryset=SearchQuerySet()
     ), name='haystack_search'),
 )

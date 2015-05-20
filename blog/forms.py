@@ -48,13 +48,3 @@ class RecipeBrowserForm(forms.Form):
         choices=diets_list,
         coerce=(lambda n: Diet.objects.get(name=n))
     )
-
-
-# keeps HayStack from creating anything but one text widget
-class RecipeSearchForm(SearchForm):
-    q = forms.CharField(required=True, label='',
-                        widget=forms.TextInput(attrs={
-                            'type': 'search',
-                            'class': 'sidebar-form-input',
-                            'placeholder': 'Search'
-                        }))

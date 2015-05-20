@@ -3,7 +3,7 @@
 
    <form id="subscribe-form">
        {% csrf_token %}
-       {{ subscribe_form }}
+       <input id="subscribe-input" class="sidebar-form-input" type="text" placeholder="Email" name="email" />
        <input type="submit" class="fa sidebar-form-icon" value="&#xf0e0;" />
    </form>
 

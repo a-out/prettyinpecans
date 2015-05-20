@@ -7,10 +7,5 @@
    <li><a href="#"><i class="fa fa-facebook fa-2x"></i></a></li>
 </ul>
 
-{% if subscribe_form %}
-   {% include 'newsletter/subscribe.html' %}
-{% endif %}
-
-{% if search_form %}
-   {% include 'search/search.html' %}
-{% endif %}
+{% include 'newsletter/subscribe.html' %}
+{% include 'search/search.html' %}
