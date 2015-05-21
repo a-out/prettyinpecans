@@ -9,6 +9,7 @@ from blog import views
 urlpatterns = patterns('',
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'posts/$', views.IndexView.as_view(), name='index'),
+    url(r'posts/tags/(\S+)/$', views.TagIndexView.as_view(), name='tags'),
     url(r'posts/food/$', views.FoodIndexView.as_view(),  name='food_index'),
     url(r'posts/fashion/$', views.FashionIndexView.as_view(),  name='fashion_index'),
     url(r'posts/travel/$', views.TravelIndexView.as_view(), name='travel_index'),

@@ -42,7 +42,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('type', 'title', 'written_on', 'published')
     list_display_links = ('title',)
     fieldsets = [
-        ('Meta',    {'fields': ['title', 'slug', 'type', 'published']}),
+        ('Meta',    {'fields': ['title', 'slug', 'type', 'published', 'tags']}),
         ('Content', {'fields': ['body', 'header_image']})
     ]
     prepopulated_fields = {'slug': ['title']}

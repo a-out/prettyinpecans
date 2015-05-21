@@ -1,3 +1,4 @@
 {{ object.title }}
+{{ object.tags.all }}
 {{ object.recipes }}
 {{ object.ingredients_list }}

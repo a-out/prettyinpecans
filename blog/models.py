@@ -1,6 +1,8 @@
 from django.db import models
 from django.conf import settings
 
+from taggit.managers import TaggableManager
+
 from .managers import PostManager, RecipeBrowserManager
 from .utils import render_markdown, random_file_path, before_jump, teaser
 
@@ -31,6 +33,7 @@ class Post(models.Model):
     body = models.TextField()
     images = models.ManyToManyField(Image)
     header_image = models.ForeignKey(Image, related_name='title_post')
+    tags = TaggableManager()
 
     objects = PostManager()
 
@@ -59,6 +62,11 @@ class Post(models.Model):
     def recipes_list(self):
         if self.recipes.count() > 0:
             return ", ".join([r.name for r in self.recipes.all()])
+        return ""
+
+    def tags_list(self):
+        if self.tags.count() > 0:
+            return ", ".join([t.name for t in self.tags.all()])
         return ""
 
     def ingredients_list(self):

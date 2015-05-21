@@ -19,6 +19,12 @@ class IndexView(generic.ListView):
         return Post.objects.published().order_by('-written_on')[:5]
 
 
+class TagIndexView(IndexView):
+    def get_queryset(self):
+        tag = self.args[0]
+        return Post.objects.filter(tags__slug__in=[tag])
+
+
 class FoodIndexView(IndexView):
     def get_queryset(self):
         return Post.objects.food().order_by('-written_on')
@@ -57,6 +63,9 @@ class DetailView(generic.DetailView):
         context = super(DetailView, self).get_context_data(**kwargs)
         context['related_posts'] = Post.objects.related(context['post'])
         return context
+
+    def get_queryset(self):
+        return Post.objects.published().prefetch_related('recipes')
 
 def recipe_browser(request):
     if request.method == 'POST':

@@ -25,6 +25,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'static_precompiler',
     'haystack',
+    'taggit',
 
     'newsletter',
     'blog'
