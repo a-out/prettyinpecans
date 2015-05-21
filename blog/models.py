@@ -54,7 +54,7 @@ class Post(models.Model):
         return render_markdown(before_jump(self.body), self.images.all())
 
     def teaser(self):
-        return render_markdown(teaser(self.body, 50))
+        return render_markdown(teaser(self.body, 25))
 
     def recipes_list(self):
         if self.recipes.count() > 0:
